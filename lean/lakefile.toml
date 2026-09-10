@@ -1,0 +1,13 @@
+name = "erdos_1011_r4"
+version = "1.0.0"
+defaultTargets = ["Erdos1011R4"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.34.0-rc2"
+
+[[lean_lib]]
+name = "Erdos1011R4"
+srcDir = "."
+

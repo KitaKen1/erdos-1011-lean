@@ -1,0 +1,15 @@
+import R5Kernel.Probes.S11C9OrbitWitness
+
+set_option Elab.async false
+set_option maxHeartbeats 20000000
+set_option maxRecDepth 200000
+
+namespace Erdos1011
+
+theorem kernel_c9_orbit_witness_block3 : ∀ i : Fin 128,
+    KernelC9OrbitWitnessValid (i.val + 384) := by
+  decide +kernel
+
+run_cmd R5Kernel.checkStandardAxioms ``kernel_c9_orbit_witness_block3
+
+end Erdos1011

@@ -1,6 +1,8 @@
 .DS_Store
-.lake/
+# Match both cache directories and local-only cache symlinks.
+.lake
 lake-packages/
 *.olean
 *.ilean
-
+__pycache__/
+*.pyc

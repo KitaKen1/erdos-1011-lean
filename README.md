@@ -1,7 +1,7 @@
 # Erdős Problem #1011 in Lean
 
-This repository has two contributions: one statement catalog and one complete
-fixed-parameter result.
+This repository has three contributions: one statement catalog, a complete
+`r = 4` result, and an `r = 5` result for every `n ≥ 80`.
 
 1. **Contribution 1 — Prospective Formal Conjectures formalization.**
    [`FClikeLean.lean`](FClikeLean.lean) formalizes the original all-`r`,
@@ -12,8 +12,15 @@ fixed-parameter result.
    The Lean proof determines both the maximum triangle-free edge count
    `M 4 n` and the triangle-forcing threshold `f 4 n` for every natural-number
    order `n`, including `n ≤ 10` and the exceptional value `n = 11`.
+3. **Contribution 3 — `r = 5`, every `n ≥ 80`.**
+   The standalone proof determines `M 5 n` and `f 5 n` throughout this range:
+   `M₅(n) = ⌊n²/4⌋ - 3n + 14` and `f₅(n) = ⌊n²/4⌋ - 3n + 15`.
+   The modular proof and the standalone Lean4Web source use only the three
+   standard axioms: `propext`, `Classical.choice`, and `Quot.sound`.
+   The standalone file passed a complete local check of all 359 embedded
+   modules on 2026-09-18; the source-bound result and log are included.
 
-In particular, the main proved result is the complete formula
+For `r = 4`, the complete formula is
 
 ```text
 f₄(n) = 0                         if n ≤ 10,
@@ -28,16 +35,20 @@ The Lean development proves this formula for every `n ∈ ℕ`.
 **Try it in Lean4Web:**
 
 - [Contribution 2 — complete `r = 4` proof](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-1011-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos1011R4Lean4Web.lean)
+- [Contribution 3 — `r = 5`, `n ≥ 80` proof](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-1011-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos1011R5KernelLean4Web.lean)
+  ([standalone source](lean4web/Erdos1011R5KernelLean4Web.lean),
+  [verification instructions and evidence](verification/r5-kernel/README.md)).
 
 Contribution 2 proves the actual finite-graph threshold statement, not only
 an arithmetic kernel with the graph-theoretic conclusion supplied as a
 hypothesis. The proof includes the explicit lower constructions, the general
 upper-bound reduction, and kernel-checked finite certificates.
 
-The original all-`r` problem and the fixed `r = 5` variant are formalized but
-not claimed as proved here.
+The original all-`r`, all-`n` problem and the **all-`n`** fixed `r = 5`
+variant are not claimed as proved here. Contribution 3 covers `n ≥ 80`
+only; it does not settle the remaining `r = 5`, `n < 80` range.
 
-## Formal Conjectures-shaped proved target
+## Formal Conjectures-shaped proved target (`r = 4`)
 
 The prospective FC statement asks the solver to provide the function itself:
 
@@ -109,19 +120,73 @@ There is no `sorryAx`, project-specific mathematical axiom, or
 the prospective problem statement and are not imported by the completed
 proof.
 
+## Proved target for `r = 5`, `n ≥ 80`
+
+The final standalone theorem is:
+
+```lean
+namespace Erdos1011KernelLean4Web
+
+theorem formal_target_r5_ge80 :
+    ∀ n : ℕ, 80 ≤ n →
+      Erdos1011.M 5 n = n ^ 2 / 4 - 3 * n + 14 ∧
+      Erdos1011.f 5 n = (n ^ 2 / 4 - 3 * n + 14) + 1 ∧
+      Erdos1011.ThresholdExtremalOffset 5 n :=
+  Erdos1011Kernel.formal_target_r5_ge80
+
+end Erdos1011KernelLean4Web
+```
+
+The modular entry point is
+[`R5Kernel/Final.lean`](lean-r5/R5Kernel/Final.lean).
+Division and subtraction are natural-number operations. For `n ≥ 80`,
+these formulas are exactly `⌊n²/4⌋ - 3n + 14` and one more, respectively.
+`ThresholdExtremalOffset 5 n` states `f 5 n = M 5 n + 1`.
+
+The proof includes the graph-theoretic upper bound and explicit lower
+witnesses. No certificate hypothesis or near-extremal isomorphism
+classification is assumed. The separate `n ≥ 118` classification is not
+part of this theorem.
+
+The final dependency audit is:
+
+```text
+[propext, Classical.choice, Quot.sound]
+R5_KERNEL_PASS Erdos1011KernelLean4Web.formal_target_r5_ge80: standard=3, extra=0, sorryAx=0
+R5_KERNEL_WEB_FINISHED standard=3, extra=0, sorryAx=0
+```
+
+There are no native-computation or project-specific axioms in this target's
+dependency closure. The standalone source re-elaborates all 359 complete
+module bodies in import order and imports only Lean/Mathlib, not local
+project `.olean` files.
+
+The [verification record](verification/r5-kernel/kernel_web_local_06.json)
+and [complete local log](verification/r5-kernel/kernel_web_local_06.log)
+record exit code 0, 359/359 modules, and the strict final audit.
+See [verification details](verification/r5-kernel/README.md) and the
+[small-residual certificate explanation](verification/r5-kernel/UNIFORM_WEIGHTS.md).
+
 ## Directory layout
 
 | Path | Contents |
 |---|---|
-| [`FClikeLean.lean`](FClikeLean.lean) | Unofficial FC-style original problem and fixed variants `r = 1, 2, 3, 4, 5` |
-| [`lean/`](lean/) | Local project containing one standalone, complete `r = 4` proof |
-| [`lean4web/`](lean4web/) | One copy-and-paste Lean4Web file for the same `r = 4` proof |
+| [`FClikeLean.lean`](FClikeLean.lean) | Prospective all-`r` and fixed-`r` statement catalog |
+| [`lean/`](lean/) | Complete `r = 4` local proof, Lean 4.34.0-rc2 |
+| [`lean-r5/`](lean-r5/) | Three-axiom `r = 5`, `n ≥ 80` modular proof, Lean 4.34.0 |
+| [`lean4web/`](lean4web/) | Standalone sources for the two separate results |
+| [`verification/r5-kernel/`](verification/r5-kernel/) | Final `r = 5` source manifest, local verification evidence and notes |
+| [`tools/`](tools/) | Reproducible packaging, bounded checkers, witness generators and regression tests |
 
-No final `r = 5` threshold theorem is exported or claimed by the proof
-directories. The weaker `r5_eventual` statement has also been omitted from
-the FC-style catalog.
+The proof projects have separate environments. Their standalone sources
+repeat shared definitions, so do not import both into one Lean module.
+Only the current three-axiom `r = 5` proof is distributed here; superseded
+native proofs, unused experiments, intermediate logs and local caches are
+not required to reproduce the result.
 
 ## Verification
+
+### `r = 4` (existing project)
 
 ```bash
 cd lean
@@ -143,14 +208,74 @@ the complete contents of
 The file embeds the finite CNF/LRAT data, so no filesystem write or external
 SAT solver is required during checking.
 
-The released local and Lean4Web proof files are byte-for-byte identical. The
-verified SHA-256 is
+The `r = 4` local and Lean4Web proof files are byte-for-byte identical. The
+verified `r = 4` SHA-256 is
 
 ```text
 9a242885eb9c2b7e218357322a136ed8872f2b7235fded80d288f35d0a798973
 ```
 
+### `r = 5`, `n ≥ 80`: three-axiom proof
+
+Install the pinned Lean toolchain and fetch the pinned dependencies/cache:
+
+```bash
+cd lean-r5
+lake exe cache get
+cd ..
+```
+
+Keep `lean-toolchain` and `lake-manifest.json` unchanged; do not run
+`lake update` to reproduce the recorded environment.
+
+For a quick offline packaging/evidence check from the repository root:
+
+```bash
+python3 tools/prepare_r5_kernel_web.py --check
+python3 tools/check_r5_kernel_web_local.py kernel_web_local_06 --verify-only
+python3 -m unittest discover -s tools -p 'test_*.py'
+```
+
+These commands check source reproduction, hashes, recorded diagnostics and
+Python regressions. They do **not** rerun Lean.
+
+To independently recheck the entire standalone source locally:
+
+```bash
+python3 tools/check_r5_kernel_web_local.py recheck_01 --timeout 1800
+```
+
+Use a fresh label on every run; existing evidence is never overwritten.
+This invokes one Lean checker with `-j1 -M6144`. The recorded run took about
+15 minutes; time and total memory use depend on the machine. Do not run
+another heavy Lean build concurrently.
+
+For an incremental modular build, use the serial builder:
+
+```bash
+python3 tools/build_r5_kernel_serial.py modular_recheck_01 R5Kernel.Final --timeout 600
+```
+
+The default Lake target is now `R5Kernel`. Prefer the serial command above
+over plain `lake build` to avoid concurrent compilation of heavy modules.
+Dependency setup downloads packages; local checks do not upload the proof.
+
+For Lean4Web, load the entire
+[`Erdos1011R5KernelLean4Web.lean`](lean4web/Erdos1011R5KernelLean4Web.lean)
+and wait for the final axiom audit and `R5_KERNEL_WEB_FINISHED`.
+The preserved hash-bound verification environment is Lean 4.34.0; browser
+version notes and the distinction between browser and local evidence are
+documented in the [verification notes](verification/r5-kernel/README.md).
+
+The standalone `r = 5` SHA-256 is:
+
+```text
+33214237de69bdf664c0082ea20e05531a85c74093096a1bc2ff3c9f3e69363e
+```
+
 ## Mathematical Explanation (AI generated)
+
+The following three subsections explain the existing `r = 4` result.
 
 ### The range `n ≤ 10`
 
@@ -223,6 +348,10 @@ direction of KitaKen1 (Kenta Kitamura).
 | Target | Result |
 |---|---|
 | Fixed `r = 4`, every `n ∈ ℕ` | Complete piecewise formula for both `M₄(n)` and `f₄(n)` |
+| Fixed `r = 5`, every `n ≥ 80` | `M₅(n) = ⌊n²/4⌋ - 3n + 14`, `f₅(n) = ⌊n²/4⌋ - 3n + 15`; standard three axioms only |
+
+The **OPEN** entry for fixed `r = 5` in the FC-style catalog refers to its
+all-`n` target; the new theorem only covers `n ≥ 80`.
 
 ## Appendix B — Conjecture formalization in FClikeLean
 

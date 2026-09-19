@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "finished_utc": "2026-09-18T09:20:54.303378+00:00",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "-M6144",
+    "/Users/kenta/Dropbox/Intellectual Moonshine/?AI\u6570\u5b66/1011/github\u4f5c\u696d\u7528/erdos-1011-lean/lean4web/Erdos1011R5KernelLean4Web.lean"
+  ],
+  "exit_code": 0,
+  "seconds": 895.676,
+  "timeout_seconds": 1800,
+  "source": "lean4web/Erdos1011R5KernelLean4Web.lean",
+  "source_sha256": "33214237de69bdf664c0082ea20e05531a85c74093096a1bc2ff3c9f3e69363e",
+  "bytes": 1687346,
+  "bundle_manifest_sha256": "bff82f3bf0eeee471f17beb92648f0861dad5f08deebeb988198a09bfa5225a5",
+  "lean_toolchain": "leanprover/lean4:v4.34.0",
+  "lake_manifest_sha256": "b331bbb1091b40a257f5c7b8054949bb78c8cc3f84c2e98778fdf6310fd0084d",
+  "module_count": 359,
+  "completed_modules": 359,
+  "checks": {
+    "exit_zero": true,
+    "module_starts_match": true,
+    "module_completions_match": true,
+    "sequential_module_events": true,
+    "final_type": true,
+    "exactly_standard_three": true,
+    "final_strict_audit": true,
+    "eof_sentinel": true,
+    "no_error_diagnostics": true,
+    "inputs_unchanged": true
+  },
+  "log_sha256": "81c5cd195eb44a605d7261a5b3896bfd483d661f0a272f6a68d226168d7c9fd9",
+  "environment": "LOCAL ONLY; not public Lean4Web; no upload or push",
+  "scope": "Whole standalone source re-elaborated; only Lean/Mathlib dependencies imported; no local project olean imports."
+}

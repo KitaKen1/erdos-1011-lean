@@ -1,0 +1,3249 @@
+{
+  "format_version": 1,
+  "status": "GENERATED_NOT_VERIFIED",
+  "source": "lean4web/Erdos1011R5KernelLean4Web.lean",
+  "bytes": 1687346,
+  "source_sha256": "33214237de69bdf664c0082ea20e05531a85c74093096a1bc2ff3c9f3e69363e",
+  "modules": [
+    {
+      "module": "R5Kernel.Common",
+      "source_sha256": "830994258eb2378381c2d25a4de01a29147dc4d233e42a03c8aee093011c5f18",
+      "body_sha256": "ae97dc10a68c17d9105671ef77e93bc2faeb0f2cd57935f97b36ec06b15adb0a",
+      "imports": [
+        "Lean.Elab.Frontend",
+        "Lean.Util.CollectAxioms",
+        "Mathlib.Algebra.Order.Chebyshev",
+        "Mathlib.Combinatorics.SimpleGraph.Coloring.Constructions",
+        "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+        "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan",
+        "Mathlib.Combinatorics.SimpleGraph.FiveWheelLike",
+        "Mathlib.Combinatorics.SimpleGraph.Operations",
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Data.Set.Finite.Lemmas",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.IntervalCases",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CanonicalDefinitions",
+      "source_sha256": "82bee35f45976e26c1772f518ee2ccd63402176fa8580a34dcac868fcfb4b655",
+      "body_sha256": "41482a825935d52dcd75d749aae6d1bb08dbe79e071ad6fe4086f6d36e53a6b3",
+      "imports": [
+        "R5Kernel.Common"
+      ]
+    },
+    {
+      "module": "R5Kernel.Audit",
+      "source_sha256": "c51d2c86d92e2eae9dda5e5c7bb8af98537bab1e5115f5d491189f6995c0c019",
+      "body_sha256": "934329469933ca2348d8367087625a0f485113e1c6dadf1509ffc75db6709bb3",
+      "imports": [
+        "Lean.Elab.Command",
+        "Lean.Util.CollectAxioms"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Local",
+      "source_sha256": "19bf0bcfd869560d0e5d0ccf73003c67b85dcab2eb6880b5af4338cff7952aa9",
+      "body_sha256": "8044b80f1beafa744df17b18dcbbf09a7be4273bb8e3725068830603872bb8ed",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5BetaData",
+      "source_sha256": "b30fceefaaa32d06b59b1783f6aae62bdadee1f40251c885cf6bc7ecce973dba",
+      "body_sha256": "6d72671533fcccdbb8abbe4fdc0dde16f416572d964272502d5a98bd493e1aed",
+      "imports": [
+        "R5Kernel.Probes.S11C5Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Cover",
+      "source_sha256": "0d8c6e2baa2e0968c57331674208e3761c8b4b54b24977c316a53e2187bac505",
+      "body_sha256": "68e48709aed48e94e133eb2e147bb3ed727b94648875351c6e57e5ce9689a6eb",
+      "imports": [
+        "R5Kernel.Probes.S11C5Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5OrbitData",
+      "source_sha256": "cfb133669a98ebf712c38b18ed71c2900499d5627f6417306200da12e52e5a8c",
+      "body_sha256": "7f63c33ad70d2e83abceb86087693b1cddcbe0dc1a485a7eb1aad37382b388ad",
+      "imports": [
+        "R5Kernel.Probes.S11C5BetaData",
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M001",
+      "source_sha256": "cffcfd2880145926d1dae45fb29616530fb9d59be26847ad32fd6adcfb319386",
+      "body_sha256": "d97d68f5156e6bc3bf5c1eaccac93dd59a463b41dcfe3368bfd5bc77371c8d06",
+      "imports": [
+        "R5Kernel.Common"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M002",
+      "source_sha256": "6d8665acfe68527bab703e7dd790862428801c5aaff53a58cd8d9a283b3c5c09",
+      "body_sha256": "2f27d38a3f4b7d721bfe0ef7379d73e3c1684a50935e73823e9ee6429a2eae03",
+      "imports": [
+        "R5Kernel.Parts.M001"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M003",
+      "source_sha256": "66b31f79e1628684710c217518196d4f53e4341a2cb13ccd3876a5bfd86427c3",
+      "body_sha256": "252c64f2b9c26fcc1951596bd8be8a14c1f3128a4861a5aeb887e5b0dd0c952b",
+      "imports": [
+        "R5Kernel.Parts.M002"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M004",
+      "source_sha256": "9503802c794b85bc2891d83c4284201c91f72ea6fe48e03686b2e39717a03ac7",
+      "body_sha256": "a5cb8925087f9180aad3c12f63a19df455714e245ce863eb71708ef8bd9e379f",
+      "imports": [
+        "R5Kernel.Parts.M003"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M005",
+      "source_sha256": "14b0663e3e8a6917e7cf10c6efd95d043e1203d7fefd966676daab35e3139a84",
+      "body_sha256": "4dba2dbc495dcebc3be7efe5197a3d35ea0bcceaeb0cc0d2b6ea5682bfceef67",
+      "imports": [
+        "R5Kernel.Parts.M004"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M006",
+      "source_sha256": "79f86da1bd46f2e0f38938034a8118446c3e1f6e4a83a861e120372db9122cfb",
+      "body_sha256": "60447fda1d12669c58cd59c02f4cf52793ac15bcd6d29cb0be6ce95e0bb87255",
+      "imports": [
+        "R5Kernel.Parts.M005"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M007",
+      "source_sha256": "ae6993514927be2c06b26667a6c81a566f7f9feb0d010291dbc188f1d49284f9",
+      "body_sha256": "e434d8bf0b42c532724abf5834dba5b794ddec0cc23f9d51f71b3cee10f3c556",
+      "imports": [
+        "R5Kernel.Parts.M006"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M008",
+      "source_sha256": "3908b68f5df22933e9f74f78563780b3c514db51e3868190ad863b79b9c853ef",
+      "body_sha256": "0b10ff763e80d9a012272069f1d671e8edf83100dfe1322ba354be67256a5ee6",
+      "imports": [
+        "R5Kernel.Parts.M007"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M009",
+      "source_sha256": "0029e9d85cb8b9595d1cbebc75ac21a038bedbf5f5089697eb410910396f7729",
+      "body_sha256": "5b2096731e3e6420061f7372a9d5bac21c0b021aeb2b5378f884f49f8bc87fc9",
+      "imports": [
+        "R5Kernel.Parts.M008"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M010",
+      "source_sha256": "f2f570b784b19b8989d24c9d9fcaf3f1f4495d241dce030180b26fe3e6e8af73",
+      "body_sha256": "88943bfb00a1662199c756d71bc79d732fc50993cc14855f2da5cc47ea77d768",
+      "imports": [
+        "R5Kernel.Parts.M009"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M011",
+      "source_sha256": "053ff5a45dfe63f5b119f1bb32400cf95612aac8dd4702a0b539e897192a1899",
+      "body_sha256": "4bc3d6771295f9048d58d743d665f0c0fe7b5e6a7060a7516bdc3f754cfa1a21",
+      "imports": [
+        "R5Kernel.Parts.M010"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M012",
+      "source_sha256": "f5b8b67d8a6367a58455cbf32f791a931c9baf4e8d2e6d9850a414314a8628a7",
+      "body_sha256": "207ddd6db8daba03f73ed5a8289d9b105304bd995e504dc2991a55789b929fd4",
+      "imports": [
+        "R5Kernel.Parts.M011"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M013",
+      "source_sha256": "a26b327a7f09e636aeb8e6f432b3c9aae035e5c7fac5df8b9b0aaa81841645b0",
+      "body_sha256": "8b12a97ff9bcd53c3d8d541ea912c4cf56ce83356bdad604705ea760b378ccd2",
+      "imports": [
+        "R5Kernel.Parts.M012"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M014",
+      "source_sha256": "fbb374fbbc877c5560e0393b5c50b5718aaf76078782a067d54c87404d71e401",
+      "body_sha256": "52e06e01a230fcb8cadc3f5a1a73886027f155d0fdb2862f80c9037fb29bf790",
+      "imports": [
+        "R5Kernel.Parts.M013"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11CanonicalDefinitions",
+      "source_sha256": "cffeb0b0a25d2ca3a37e98a2128faaed500811f541c4aaa028ebf9b2d5e99e0c",
+      "body_sha256": "9ebe4bff99008ffa4be20ecab555c4637677615a04ce3db9a49b25b3c3c6ce0c",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericDefinitions",
+      "source_sha256": "235bf9d92dae4ccdd1af77958f6ccabcf136bc29b33f24c83e2b8f4533a26078",
+      "body_sha256": "64e7e8ff5b0ba632a6b9f58ec0db470746ef61a95f7e91d83804f4d69a84ae04",
+      "imports": [
+        "R5Kernel.Probes.S11C11CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11Canonical126",
+      "source_sha256": "f90dffa1926fc67b8708971d1a8b2191e0eb0865468ca652c3ef3f19d3d73497",
+      "body_sha256": "beda816464e6663b65c7a973cb018e16f7d596b939107be6311f4d1875c25193",
+      "imports": [
+        "R5Kernel.Probes.S11C11CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericMask",
+      "source_sha256": "ee4311b8e7c2364383a8e57b3a94f935ec3e238277b7b8f2f337ed8116342717",
+      "body_sha256": "1dc1589368394cae3bb26cf7a25f2a59886a29d71fb947cb63758a38872aceb7",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11CycleTypesExplicit",
+      "source_sha256": "4861e17fd63e97b0eac58738871d47922f4ffe7efca5388f5a0185b0d6c84c6e",
+      "body_sha256": "103e2f0af1a3bfcc8dc066539c2205a9eed70e63488e7e5408fc3eb708cdacd7",
+      "imports": [
+        "R5Kernel.Probes.S11C11CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBetaChunk0",
+      "source_sha256": "d75d1fe8e313b955b4dd54b2bcf9b7d03cad789c75e0736e4d16d6dc80bcedbb",
+      "body_sha256": "266ea4fe3434134fff147dc59d8343a8fa1bcdc6af44fb96a594a60ab2a3d67f",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Probes.S11C11CycleTypesExplicit",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBetaChunk1",
+      "source_sha256": "707b90856a90e2730d0e40939e7c73ed5b6c06ce2f01a85db04890f081664280",
+      "body_sha256": "52876196d2b7f53decfebc9f5788d70ce51e45bb6f2c2d1f19ca4938f415ab0e",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Probes.S11C11CycleTypesExplicit",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBetaChunk2",
+      "source_sha256": "060345a8790df8ad7ca3a0b8d440231e1109e60321fdcfdad1795a96106aced9",
+      "body_sha256": "e38fe9365e3cb2ff651217145fc06471663e4fe423d814763182880a370d6825",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Probes.S11C11CycleTypesExplicit",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBetaChunk3",
+      "source_sha256": "125a8f8b490a7064a41c702f6e7f8052119468bd0b68bec0754e09d8417052b5",
+      "body_sha256": "a2bb17871e12f60c257066da9486ab6ca63d1b5e359eda0df7093780e62dda8b",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Probes.S11C11CycleTypesExplicit",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBetaChunks",
+      "source_sha256": "39eeb0f0bdb4a3ae77f716be38dbd979c2c47face30edbe28abb7f4566c72cad",
+      "body_sha256": "b70a8c94559f780459237facc5204e78331e24fd045eb7439b596fbae27cc4e4",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericBetaChunk0",
+        "R5Kernel.Probes.S11C11NumericBetaChunk1",
+        "R5Kernel.Probes.S11C11NumericBetaChunk2",
+        "R5Kernel.Probes.S11C11NumericBetaChunk3",
+        "R5Kernel.Probes.S11C11CycleTypesExplicit",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBoundChunk0",
+      "source_sha256": "a21b7af5d4cd9fb97ada462c119bc3ad68e2bd5ec323f8ac400acbfefb04d6fd",
+      "body_sha256": "29c3fc05fc8ca9ce73266ec66d75f8afeba789918370c6511fa77e1e735e27e2",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBoundChunk1",
+      "source_sha256": "26398c327dc7e68261e7b29f699b331f6b5e05c73095d2555da4822b3041b556",
+      "body_sha256": "8387a38c5e40cf1895d43b5554997697b927c3bb145522f15d2e20892d1e3c93",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBoundChunk2",
+      "source_sha256": "5dbf61e0b0d295ffa2f0f2e2d773386a7d7caaf7d7680605dd697869c8549998",
+      "body_sha256": "b7b8244c3903ad425a65f7bd4121aeb2aaf711d750c55383005c36efc76accab",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBoundChunk3",
+      "source_sha256": "904026dc5542141ae36e719d59bd8dbe3a7dfcadaf0c2a8858395239250c6968",
+      "body_sha256": "72286377527e9cd317260f1ccf6df5b5b2b79d945d05c0ea053065c76f0e60e7",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericDefinitions",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11NumericBoundChunks",
+      "source_sha256": "781eb27ad694f2849bd08fbf99f5ec348d5298841439ffb67d07ed2dbec02342",
+      "body_sha256": "427fa65605d6ccca674671a1c236b92ea4f1ec8c893353a633cb851fe751ca26",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericBoundChunk0",
+        "R5Kernel.Probes.S11C11NumericBoundChunk1",
+        "R5Kernel.Probes.S11C11NumericBoundChunk2",
+        "R5Kernel.Probes.S11C11NumericBoundChunk3",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11Certificates",
+      "source_sha256": "75ce13d2e98817f603a9270956bf1b312b107138c4761213e510815c2ab61d11",
+      "body_sha256": "df8d8b3f2ff2d9d84b2c3f9f9636ae83473fc94a6405b572dd00598fa565de40",
+      "imports": [
+        "R5Kernel.Probes.S11C11NumericMask",
+        "R5Kernel.Probes.S11C11NumericBetaChunks",
+        "R5Kernel.Probes.S11C11NumericBoundChunks",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11Local",
+      "source_sha256": "7676de4f03363899190df7c970e29fa0908baa6382f43a1c2c778011e199eda5",
+      "body_sha256": "eb4645d3498f2fa59b5554b9ed35ef36f46ada2d54db84d4a61200a2d8fa41dd",
+      "imports": [
+        "R5Kernel.Probes.S11C11CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitAction",
+      "source_sha256": "081e2ba75f57caee63493493138ddf7106407f98dc861c3a984edf887f087e6f",
+      "body_sha256": "29604451902d73b1410ac1629fc3c21312dd69ba5c7e2faec513a834db92f7bf",
+      "imports": [
+        "R5Kernel.Probes.S11C11Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Symmetry",
+      "source_sha256": "4297a91b6379bbce843688e62d8d2938f9488cc9d6e0b01afb7e414edaa881ec",
+      "body_sha256": "53e1b0c90e6da1e74f755b79313a61eab4db8560a4ed321a7da436f0e5351267",
+      "imports": [
+        "R5Kernel.Common",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.GraphSymmetry",
+      "source_sha256": "93b636545c2cf619417866911cb72926b83e637afb646a6080cca448aa5213d6",
+      "body_sha256": "44f0e02cf11bb74af32a23ae2bcec1064eaa245f908216fcfa98d14fae369271",
+      "imports": [
+        "R5Kernel.Symmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitTransport",
+      "source_sha256": "ad0c5aa3257dab231d46f8af34f53e45cae440a3527a8140c4c124d7eca1f20e",
+      "body_sha256": "5cb3563020717384b98e4e6faea08a3f727240bd8cdcb323279b44e4175a6de5",
+      "imports": [
+        "R5Kernel.Probes.S11C11Certificates",
+        "R5Kernel.Probes.S11C11OrbitAction",
+        "R5Kernel.GraphSymmetry",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardWitness",
+      "source_sha256": "33127a94ffdc035318801d842194a028562846d4789a3d5a934f327a21b88deb",
+      "body_sha256": "39a1b975c100303bcb68ed07ad93c7649e2d79e986b73a13129c7e3cb2b74afb",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitAction"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk0",
+      "source_sha256": "a4e19ca78f736c91fdd15104af0a90a43108e203aea52acfd5e23348b809c501",
+      "body_sha256": "212cf8c5024d7992accf23dd2997d7343985212f1ffb43abe83955e052249635",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk1",
+      "source_sha256": "6a376c90836c0b10b0032e25973a5fe7dc733b25ff3b201fe5feb1e7c1c8dbf7",
+      "body_sha256": "3c2f2babc93a7171959f535e40fa443005748a7264d2cff61fd41658a8a9022d",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk2",
+      "source_sha256": "8c9bdd395a454bce5147fad31281b455e9e067a174208cb549425c8c16621d72",
+      "body_sha256": "01749339af54eb846b506eb9651ee35c0f9a9618962c83b5725d690172e849ec",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk3",
+      "source_sha256": "88429008f319dbf2b699fc4644e80a2e540624f04db79c7d9be7cec20f7c39f5",
+      "body_sha256": "be4d8050afb241fa904eb85f3d062f9d7e404ff028dd6abf79650cd4cca6e07e",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk4",
+      "source_sha256": "0b63f874fa61515b19e6fb882afee81e4155ca687b8373e7be2e7ae7d7b70aee",
+      "body_sha256": "9d4db91bf6df5f7943771792f2ca28be4ab7885448515ed8088a04791ed410f2",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk5",
+      "source_sha256": "ced46942b0201caf960d22f7da2e34b2eceed76aac1d38c159160b9e22a0f586",
+      "body_sha256": "744e48f323988f28b914115428092d71d745cd79a4cc4805d6af23cc990f4f15",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk6",
+      "source_sha256": "da5b2c9f1dbd70aa2b29c15a176a8990addf547f660e028e29ea653401a2fbff",
+      "body_sha256": "30ca41fbad3f613456636c9f08810f8bcc45e3dc7510d3d19cb32ffe7dc0f1d4",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk7",
+      "source_sha256": "385d57eabefe54315bda4c0cccc52a13946cc90f05b2d85fdd543d95d00f66cc",
+      "body_sha256": "70552b8001d99d0ae7839cd3a4684101dc91d4221e175e339693f7f25710b6a2",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk8",
+      "source_sha256": "bf544909efd22eb67da9725e797dc6d70bfe102b28dcad376b96136210ed8102",
+      "body_sha256": "91e1d77ebf870a1df92f57ee014346de3f1bd030f1b7e89b3316fe1e8901ae52",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk9",
+      "source_sha256": "697c54f64f2c7e64934b9937eaa748de32a328d1a2af8d0a095331d345b03782",
+      "body_sha256": "3cbbf74e55031ae158c982fa8858acda29c1ab8b69bfc494ecd200aaea3a0420",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk10",
+      "source_sha256": "2cf41dd4905ad8507009b7977ea19155e84f502b56c83cdf6a5e0367869d0fed",
+      "body_sha256": "1ea350ee9b67e34542855e817421d26bb7a23b1649c79ed8f1209826b8be267d",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk11",
+      "source_sha256": "807b5e5b8619efd8bce917ef240ef39315e7c414bfe00b1e67f71f2c54b1fcd7",
+      "body_sha256": "1d34e0b1092d0fa557253a7b54601060805daffc32c63e4e1e2fc9c8802b01d3",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk12",
+      "source_sha256": "eef458a58eeed084e27e0158fe95a295be05b6ce618da1f2a73448ec87697cd0",
+      "body_sha256": "1807ea3e68ac0ddca99cf5ebbf1041534bb4e5746daccc11ff7f6b0faf6a1af1",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk13",
+      "source_sha256": "ad2562ca4c9ae5db9e4c0c5e5763610e7488912270a9957cbfc2fd6e10481fce",
+      "body_sha256": "82a3288b4bb09926316cd3e74ebcbd414a941c6cca1a3d0f9fbbc2d4bf7f2fe8",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk14",
+      "source_sha256": "c9af7b114377d65cb649be14f40ecf6f5f659be716a6274f79e96d548bd098f8",
+      "body_sha256": "b76b5390fab24b1ac10abbb7f4597436dd18bbcc05d985dbfeb3c2cfb4fa248c",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardChunk15",
+      "source_sha256": "a7161d14fb3c241feaadd62ffad467e52d3067ae123f3aac872bbc92b6bbb677",
+      "body_sha256": "d5e5eb8c281fa0531fd5bf51bc465548d69b18ac3bb3349bdfe67bb41427d95c",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11LowCardCoverage",
+      "source_sha256": "6db140d07b8f2f15dcb0b93757df22fdc95555b86536aba3d5607c6a2c529351",
+      "body_sha256": "1eea6851620d2645b6893c94c887e644b4f5c435a7bee656e6d21d03ef8c9ab3",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardChunk0",
+        "R5Kernel.Probes.S11C11LowCardChunk1",
+        "R5Kernel.Probes.S11C11LowCardChunk2",
+        "R5Kernel.Probes.S11C11LowCardChunk3",
+        "R5Kernel.Probes.S11C11LowCardChunk4",
+        "R5Kernel.Probes.S11C11LowCardChunk5",
+        "R5Kernel.Probes.S11C11LowCardChunk6",
+        "R5Kernel.Probes.S11C11LowCardChunk7",
+        "R5Kernel.Probes.S11C11LowCardChunk8",
+        "R5Kernel.Probes.S11C11LowCardChunk9",
+        "R5Kernel.Probes.S11C11LowCardChunk10",
+        "R5Kernel.Probes.S11C11LowCardChunk11",
+        "R5Kernel.Probes.S11C11LowCardChunk12",
+        "R5Kernel.Probes.S11C11LowCardChunk13",
+        "R5Kernel.Probes.S11C11LowCardChunk14",
+        "R5Kernel.Probes.S11C11LowCardChunk15"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitCoverageCardLE5",
+      "source_sha256": "7aab2af2d691b07c39062c4d2cae262468bef45b7a7eaea1a08bc71ec6c1c1bb",
+      "body_sha256": "bb1806191f608649a63855dc938387d3bd2f568a1b437ca38511fc0f316a61c4",
+      "imports": [
+        "R5Kernel.Probes.S11C11LowCardCoverage",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11ComplementWitness",
+      "source_sha256": "3757325d13b9170c86e92267ebaf7d7b87c0171e38fbdb9a0de945d801ccca1c",
+      "body_sha256": "ce27ac3c4ce63a7fefffbbd927f5c922a461f0855d9f26e2695f6ea9a004e4ff",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitAction",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitCoverageComplementChunks",
+      "source_sha256": "76882c5b386921e2aa5d4ddd03f7956d83140fe7d57580cab57896ea54eaa0e1",
+      "body_sha256": "6315e065b876de75eaf214073e5404d3f96ef3b48be33183b56722dd929785f8",
+      "imports": [
+        "R5Kernel.Probes.S11C11ComplementWitness",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitCoverageComplement",
+      "source_sha256": "e59ec118efa6ceced6beeb837401111a1f4445786ef7a4dd6070b74cb5803210",
+      "body_sha256": "0b32647758fff643aa5fa99a713d14a76a304f9f427f53cffd3232c303d1410f",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitCoverageCardLE5",
+        "R5Kernel.Probes.S11C11Canonical126",
+        "R5Kernel.Probes.S11C11OrbitCoverageComplementChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitCoverageHigh",
+      "source_sha256": "d73071fd66ba0678020437c15067d7affc4fce5eecb7e015b7cc875cf4a9f7de",
+      "body_sha256": "7fd7efb47cdc8a5be580efee45cde6d21745a9017481d5dc9b2bfe1e324ea887",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitCoverageComplement"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11OrbitCoverage",
+      "source_sha256": "16e8a5f6af54a599b1d0fa6d045d9d17748375e16a7d85602537a0f7ec187cfc",
+      "body_sha256": "b962ae542caf340c9fb08fe85d4aca4b960226b3c0900f538b1bf1ffacd8ae45",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitCoverageHigh"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11AllMasks",
+      "source_sha256": "ff459cc66a72baed31ec9cfffc598a02ffdae294b4c0f496672a012b259bfd2a",
+      "body_sha256": "d1beae25d590d7d536a323f77589cf2e50e821490b4704d0bd699ff2c1feb356",
+      "imports": [
+        "R5Kernel.Probes.S11C11OrbitTransport",
+        "R5Kernel.Probes.S11C11OrbitCoverage",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11SurplusBridge",
+      "source_sha256": "4410ee5dc5dd03e10dac6f70cd25d3ee20e90b15bd6fb029fe80867e04331530",
+      "body_sha256": "8e302f7db01475ce21c4db4bff3251565cc1fea5962cd0e43b174732c6a307f1",
+      "imports": [
+        "R5Kernel.Parts.M014",
+        "R5Kernel.Probes.S11C11AllMasks",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11EmbeddingBridge",
+      "source_sha256": "7ca5be4780c65a558c7d3f94d0b084b325ed7feb34eb5c44402b1837727bc7fe",
+      "body_sha256": "9513f17eab3924e1285534ef5f37014ddbce80d6c2b520d802722647689ee087",
+      "imports": [
+        "R5Kernel.Probes.S11C11SurplusBridge"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.CycleSurplusBridge",
+      "source_sha256": "95568ef51be5fcc0c95686ec196a77d7aa1ead2a2c1c39abba1e2c2c3b010a6c",
+      "body_sha256": "f114fcdeb840d98a2bd9eeb96611ac43d16df0cb30aa1ba27c1d751983ad4b91",
+      "imports": [
+        "R5Kernel.Probes.S11C11EmbeddingBridge"
+      ]
+    },
+    {
+      "module": "R5Kernel.SmallUniform",
+      "source_sha256": "5cee0c04f49b967aec24da2dedce9a2418b74e64243d95e409e7d3f34b1b8c95",
+      "body_sha256": "409fb0654f85a6b3c33fe45e936e4b7ad615659d56778e4fa0199c67f2a72ef0",
+      "imports": [
+        "R5Kernel.Probes.CycleSurplusBridge"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Structure",
+      "source_sha256": "d37311dec4789dce834c39928c5bf140fdc74f0ea879b084fa2f10e9a2c8a903",
+      "body_sha256": "67b02e8393c3124ddf9085c4e2b7f079a7dbbc93888e89e72d9622ef53a72df0",
+      "imports": [
+        "R5Kernel.Probes.S11C5OrbitData",
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Data",
+      "source_sha256": "27473e7d6d5532c0dcd7ccdce93b88d5ab7215898080ed58ffb4b004e534c394",
+      "body_sha256": "f4826c8e2b4dc103b0d23aa2a104e486b6b35acff84ef910be7ef61f7906eddf",
+      "imports": [
+        "R5Kernel.S10C5Structure"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks0",
+      "source_sha256": "7d268e7d621b6f3d6d8310154e49b7997ec0394a77d156fb307ff968c93c53a8",
+      "body_sha256": "5b6f5b9aeccef1d5e736a558ee79c1b072e0ab79bae2bacfbe460fa1175a8162",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks1",
+      "source_sha256": "2b28441b2c3b908f8d70e8935a25c9f6dd591bb49d2f31ecc4494f9a4c130fd5",
+      "body_sha256": "eb1b4cefc05bba9b1dc9d8c3a82fb011498ceffba291902e493961e4764c1b08",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks2",
+      "source_sha256": "f8fe485d5fda6015880e70269cb087c2cc021032cf39d465e099d31a35242125",
+      "body_sha256": "15a92c11f02d35e5463723219e3707dc166bc4142224dc0961f2be8e25479352",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks3",
+      "source_sha256": "9193aafc589a4676c1b26bf7ab36b829939bd75d3ee3ff082c8cf8af765cff9a",
+      "body_sha256": "ad92cf8139fddc3affac3a3312d2a92cc310393ae1bad32bf3de96c75b2639ca",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks4",
+      "source_sha256": "7f2794fb33f70d2e7617f4297fb6899b2423d1b6eb71c2e6fc24d34b4232327b",
+      "body_sha256": "8f3a5c7cb605a86535457d745b974655352a5339e6bc1b8c7abd7c5fcde6053e",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Checks5",
+      "source_sha256": "8abb3fe8484acb4029b123e9663378a159e77d4ea159efd35ef371e41955f041",
+      "body_sha256": "245a5f7263b2d1708e043ac57f740b9ff2ddad00f38875851da5f9d450bafb84",
+      "imports": [
+        "R5Kernel.S10C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Symmetry",
+      "source_sha256": "5a5a70c2b8f09948cb285b375895091c10640916a0bc1e21d061081bd2ed8c40",
+      "body_sha256": "3a2804f90a3c0b1f98dd144053f5d9637fe130f1d6b5fb73813fd8ee0dc3f7bb",
+      "imports": [
+        "R5Kernel.S10C5Data",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C5Certificates",
+      "source_sha256": "cdb7ad09dfe2bd586992e9d51503ef460d2a85cbe5c6286df19c0397341efd20",
+      "body_sha256": "6a20e4977ac8a69baac394a98e704853d30aa7ca74e867c8b4923167065f168b",
+      "imports": [
+        "R5Kernel.S10C5Checks0",
+        "R5Kernel.S10C5Checks1",
+        "R5Kernel.S10C5Checks2",
+        "R5Kernel.S10C5Checks3",
+        "R5Kernel.S10C5Checks4",
+        "R5Kernel.S10C5Checks5",
+        "R5Kernel.S10C5Symmetry",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CanonicalDefinitions",
+      "source_sha256": "8f84315b733fe77db9972d5e6e194107d3c2ad5d5a860b1aa76a6da035187bb9",
+      "body_sha256": "216870a4ea1b41bfbeb49050f4814c7b3475be22ea044f0769fd6841814dd82b",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7Local",
+      "source_sha256": "32bb619dcaeec21b216a5176c43ca39563f0bbcb617b2b6a0fe4f7d582e02257",
+      "body_sha256": "0c13586b483a9ef8c9f023267730b4e19e289511d0eb1d2ab7587a1707a9e6d2",
+      "imports": [
+        "R5Kernel.Probes.S11C7CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7Cover",
+      "source_sha256": "307d28dcca61abe6fddbea973d05c826101a867630e955db6ba1aa570263ab7a",
+      "body_sha256": "3904f7401aea424a92fef5d892d7d5564c95fddece8092a275e968d338ca2f49",
+      "imports": [
+        "R5Kernel.Probes.S11C7Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7OrbitData",
+      "source_sha256": "00ea4f010bdd90fffca1a73c68821a99014af383045d06e34cb9fbc825189089",
+      "body_sha256": "e60544906418ffad9bebfda1d96a71ff3fd1f66a57eac946d3209ac1a61b10d2",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7BetaData",
+      "source_sha256": "40ea8d33eb1ae16305f7e2b49e5a7659afe0f59e76f2547cb3e3234fbf8ec181",
+      "body_sha256": "0f379b7445dcca863aad1dd948d2cb07e3ee17521bfb1138eaa90ea2a374ad43",
+      "imports": [
+        "R5Kernel.Probes.S11C7OrbitData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Structure",
+      "source_sha256": "095a97f9ad9016a32649c3ae131c04d27cce469af4e968d618148c0122d74a4d",
+      "body_sha256": "f93b7695f0089ccb240ed254ce3ae75edc932d136585315b5df0f5ff230dc7f2",
+      "imports": [
+        "R5Kernel.Probes.S11C7BetaData",
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Data",
+      "source_sha256": "d622f891165025f63d8384e2fc43301baa5cef434863afcaabaa0835b75ee034",
+      "body_sha256": "c004d26b91399d275d84e3bf523faba230beb0603123e8f0a6df18292509e0c9",
+      "imports": [
+        "R5Kernel.S10C7Structure"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks0",
+      "source_sha256": "328a4aa52a2e349f2bdd95db948b5e14337f002ed4b9fa07e5dbe2d6258b37dd",
+      "body_sha256": "00b5836a37cf697bc71c578d0ba0e9c26cf02af5e2d02e6919e3b2f1e3deeae7",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks1",
+      "source_sha256": "00252540749564652cb6485c9b9b7fd0e25946ce0fe3f5b2a9e1d902ee315aa8",
+      "body_sha256": "281f3aea27a73989b346ce8c870447924b43ccabfb1eb28e45417581a64443cc",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks2",
+      "source_sha256": "2dda2fadfc391e300dffbb58a8e728cb7dc60e7211f826600e7da6a298b0b16b",
+      "body_sha256": "29e4823bfe6c55b31a3a0e3885ab99ff40957550d9cdcf8b823855386d992dcc",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks3",
+      "source_sha256": "3409098c7d9c191e055a3b6db77e113dbbb4c32ae758be1c5016b917c6d5c2f8",
+      "body_sha256": "7d29db419a502c848c8b0ee7f439c8058b97ed2577a7aa6cff90719963e97be2",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks4",
+      "source_sha256": "88efd92dff07a759fa78c4fd6966e4625c3242a55a4b5ac950ce41c7e095a1a4",
+      "body_sha256": "430f9eb4ad9ba4b30af60d2e3b65815b5d931abad5d70967bd65d21576a8fce9",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks5",
+      "source_sha256": "0887cc6015f2680ce00d9713cae488dbdf216c5a4752e09bae71a2330e9df60c",
+      "body_sha256": "a1ce121958648dd94228295e35f889a6dd76020f1e06aadd591880cfe2f6452b",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks6",
+      "source_sha256": "a141ade859553968206ee8d79beff6ed19c686b9cfa18fdad2c55aee87a4e737",
+      "body_sha256": "5cdfbd22a9292807de6256b3925d19d95a8b59b0b6d6b5384e4a88dd510626f6",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks7",
+      "source_sha256": "8927f14a0c4793afcd5bb8326282f24b79baac18259f609600b51486f15177e2",
+      "body_sha256": "7f5e124d23a47b4424fc611480adfc7c5d260a791d2dca16534453bdaf48effe",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Checks8",
+      "source_sha256": "cabb706b205e3454de0099218aabb022ec9703d60482d2336810aa6acda13422",
+      "body_sha256": "bffa7a3fc994b7e896499dcf7fb6014d20997910784cf0e8ad5db24d90276485",
+      "imports": [
+        "R5Kernel.S10C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Symmetry",
+      "source_sha256": "821547acbf3ab64ab9c31415c3f567106c539ec16eaa84c7c927378f2b00ec88",
+      "body_sha256": "d9d2fcc8831ec16f98c19ec3938f7476f876b7ee1dc515cdaa668c3cfc5e305f",
+      "imports": [
+        "R5Kernel.S10C7Data",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C7Certificates",
+      "source_sha256": "79e282a02145d8f1223dbd0cf6cd57a0232d719913c4e41c0d29d6c3bb40ae6c",
+      "body_sha256": "a3b4b08a470a167e440db883f3cfd9cea300f1ba1465624a9587222d572a1101",
+      "imports": [
+        "R5Kernel.S10C7Checks0",
+        "R5Kernel.S10C7Checks1",
+        "R5Kernel.S10C7Checks2",
+        "R5Kernel.S10C7Checks3",
+        "R5Kernel.S10C7Checks4",
+        "R5Kernel.S10C7Checks5",
+        "R5Kernel.S10C7Checks6",
+        "R5Kernel.S10C7Checks7",
+        "R5Kernel.S10C7Checks8",
+        "R5Kernel.S10C7Symmetry",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CanonicalDefinitions",
+      "source_sha256": "9a099cd443eeedd5e775e351c1a37efb8ad9d3842dcd4365ac47252d371e9a30",
+      "body_sha256": "563b740004123f180881ddad86ae31958a7e2e27a1626fc99ae2dd43682b894a",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9Local",
+      "source_sha256": "d15825b7a4f6d43455deb34cac9eaca57f1a48d9af25125cdeccecb5227aad1d",
+      "body_sha256": "c97ec93918bcb1d41b4421490bd3364f471cc727ceb2e78fce2aff2f949bf7e4",
+      "imports": [
+        "R5Kernel.Probes.S11C9CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9Structural",
+      "source_sha256": "9e66947ad8927150a11d8e26f32e604505480cf7e52ff9e3e823b557002a5054",
+      "body_sha256": "24246dd701aaddabc12b1bcc5b2b5f9c9d968b00d5b43f74edc9fa8bca8b7711",
+      "imports": [
+        "R5Kernel.Probes.S11C9Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitDefinitions",
+      "source_sha256": "34c724f6f082ab0d49a08d1ee48a2880fb39718abcc71ac941b4fc60eff1c3e2",
+      "body_sha256": "b4483bc55e5cd8149d2ba0c6222747350dc9adeb858be199a55a074d614aa10c",
+      "imports": [
+        "R5Kernel.Probes.S11C9Structural"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitAction",
+      "source_sha256": "a259ae29e6ba4497fd81fb4f2db2d9f0f022808aae2ba9d7fbd9b1e08b10240a",
+      "body_sha256": "3157d5dd204c55af052a2a023fbfab32c142d5f86ceb33db769e9eee08de90bb",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitness",
+      "source_sha256": "06a230e64129bf5d5a193bc9fd2b8dcd54a4c079bf41b373ac9b09be2cb4c49f",
+      "body_sha256": "7c1ab5394206a82063faaec1f87ff7de726e9a414612a0125b35c1814c783897",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitAction"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitnessChunk0",
+      "source_sha256": "ec60f9aed3764a5bfb15a2c9bbf2f2a742ed851937d28a2e54729837ec61684b",
+      "body_sha256": "c5bf4bf45b8b6f1628c02b34a1f1d006c1f6dacbf1951816158af4a34c4910c9",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitnessChunk1",
+      "source_sha256": "b48633f85da2ac77cdeee75024fa5e2aeeeff3dfe67f652d8c6ab968855cada6",
+      "body_sha256": "ee93b8d7a135a422d61c074a406d13fedddde9a3bf251c2f8d538aabc51b052a",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitnessChunk2",
+      "source_sha256": "0beab0d88a645cfeffafd26aa9ca260d9629eed9082fb458c1a4526a98bee108",
+      "body_sha256": "8ddd55ec9eed5184c1078ad36e67bd322d368d4c7fc8eb8b559baa4f70b4ab5e",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitnessChunk3",
+      "source_sha256": "f6d6cc092817ba3404bf107e01c8a81f650365ec6778abb4c67ed5892ad833f1",
+      "body_sha256": "9b6f5c65bda56a9faa81e5ab7e5168a6f7349dda935cb721c3228269e6ae0fa8",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitWitness"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitWitnessCoverage",
+      "source_sha256": "a208df0af072fa7f1d9d32a7df4b70b57cdcb380bba91e9198210e95c983803b",
+      "body_sha256": "e9ae74aa44aa47987beecc03e96de0bdc202460de66c0bac6de01aa2c187d028",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitWitnessChunk0",
+        "R5Kernel.Probes.S11C9OrbitWitnessChunk1",
+        "R5Kernel.Probes.S11C9OrbitWitnessChunk2",
+        "R5Kernel.Probes.S11C9OrbitWitnessChunk3"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitCoverage",
+      "source_sha256": "9b5c2aecbe0d86b2afee8ff7efebc02de2062eed529c71868705f0e5cfed27f2",
+      "body_sha256": "9791fd8479dccbab0c442c7093dfdab13278d8e9499e378cbfc022e0ca23e6d9",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitAction",
+        "R5Kernel.Probes.S11C9OrbitWitnessCoverage"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitPacking",
+      "source_sha256": "9fd15f5f666cea324234e89c9e83cb2ae1b7a3554bf82cd3b3c6f48f4a99c567",
+      "body_sha256": "2ef5f8df8f0c5d69392c6002e848b9e7d4497654c8d42e7c245a7d592dda256c",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitData",
+      "source_sha256": "ae264c2f8491db351499cc3c07ec025bfcd7cb9cb6806b769e1849885e71c4e5",
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitCoverage",
+        "R5Kernel.Probes.S11C9OrbitPacking"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9BetaData",
+      "source_sha256": "16937d96dcc84b6ea99e0e9c66c335289d49910bbaae11e60836a7297540af81",
+      "body_sha256": "3c473b1ee8c9fe48ee1bc9d9e161199a4da74dd92dc2f5b7caabaf00ea0b250c",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitData"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9Cover",
+      "source_sha256": "5f0066cc0d17b6331b9519cbdff3ed9b8bca4726e4323019194fcfe774327f84",
+      "body_sha256": "3e459757a8711efcc6304d3b42f6077b0f4f5f8bcb1b91aeaa3b489d1960280c",
+      "imports": [
+        "R5Kernel.Probes.S11C9Structural"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Structure",
+      "source_sha256": "d0a8e766e8eec70b23c5043eaa4d594180dc16d208dac8858b0e366f4a7524b4",
+      "body_sha256": "a2f6af65454f242026d819de1967575ae711b5bab3d645fe977b7da8e06d179c",
+      "imports": [
+        "R5Kernel.Probes.S11C9BetaData",
+        "R5Kernel.Probes.S11C9Cover",
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Data",
+      "source_sha256": "a4a2bfa7a574c66d1fe4fdf7cf51aff3fbf90012a69b8d42c9778979e5c7734c",
+      "body_sha256": "cda7ee7eba354ca795592c436c1ce4a6248180172eaf8990ecaf14cbaf42fbff",
+      "imports": [
+        "R5Kernel.S10C9Structure"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks0",
+      "source_sha256": "06341450accf11a54a53cd8521457a7dd68c4399d0feab01fa8975bcfe26ea97",
+      "body_sha256": "32788dd8bca3f5d03ab305994ed2c0159c314f61d2f344b8dee2378a083d109a",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks1",
+      "source_sha256": "15b231b3317fe40c9cd45dc20e56ff6820cbd42a1c785c6d09644094e98db9f6",
+      "body_sha256": "551b13999305c889e0a4e207812f020299aaa4a5360d80e5a79d14b407fc675a",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks2",
+      "source_sha256": "ffa544412494e4617c4741868f7dd609ede410b11fda914700c6847534747e0f",
+      "body_sha256": "b62ae74ee01c9c6fb07f8c7c1b987d4a0f51e4da8590223ca09499512bccba3f",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks3",
+      "source_sha256": "4596c6d66d18cb0e27919ab48d1c09509e7711017eef8fb9bc39abff244ddb09",
+      "body_sha256": "481a7f92c38b8cccce2d30a40d160615fa31e0243077c0e267e97c50745d0924",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks4",
+      "source_sha256": "c08a74708f5751d7d31794b7cd16a72824cfcdc6e0f4548368d6d8011e52f7c5",
+      "body_sha256": "4fb03a40adb56b8e0a32deb0ee537413a7aa57424618fd5b8018269d22937d0f",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks5",
+      "source_sha256": "516ad5959bfe901ffd129f0a74ed80f1de18bd2d7ad1a17117fd0d350c49058a",
+      "body_sha256": "e5a6491986e974014e626ceafc2d5ebe3dc60ffe61b7b4365bae980476147c2a",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks6",
+      "source_sha256": "8298986ca90eaa51b1a9ca25d8f99bef082a813988237604f7b1e27b9c6b0f62",
+      "body_sha256": "89adef7679248ef3fb157998f8b8ec2003a7e3b8da94f935d3185b38dea0680c",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks7",
+      "source_sha256": "6d549af56d13e62fc7d36c2c054ce674084d20e9e5934b22e0149034e78d66ca",
+      "body_sha256": "91fa57b85c41f4b000d7994ab1074aec6234ad0c82b9026863f39d77065928f7",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks8",
+      "source_sha256": "ee7b8b00af8a68dd2a8f521b7bd5b5bf1311c0a5a68799fa367dcacfbb9ac68f",
+      "body_sha256": "23ccdfd12126ea3655e377d84931e80a36f2a3f4e0cb9e2c41bfc1861a124056",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks9",
+      "source_sha256": "eb3700eee0f39db3e8593efea758836fd28cfabe1c4d699eba4eecfab079b12f",
+      "body_sha256": "69632222dd854674401011cc9b49e23ac61b132bf6f9f7aeab0ac088367ff226",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks10",
+      "source_sha256": "db5c4b0df94fcba61127e99cce75e759579de7334d859f3731695012109bb850",
+      "body_sha256": "6002e9dd274e86b227a1ced6bb4ba37c68a7567741d00a856e413bade3292b76",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Checks11",
+      "source_sha256": "1b1c776ab61d022fa3590834bafbd6168b0da07877479002b31dc4a77a616057",
+      "body_sha256": "a28e63dea37478491c389ad09b9d7feb7a40b1acf1ed4429f022f38e816c05d5",
+      "imports": [
+        "R5Kernel.S10C9Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Symmetry",
+      "source_sha256": "40627b61b268de24a2ca1d14b97b5e37a41de07d624d22d17b04e99979d36a12",
+      "body_sha256": "67c751f34e3d5ed65f6ec65778d9ad8e528fe390660472e1592847bd0e50bf58",
+      "imports": [
+        "R5Kernel.S10C9Data",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10C9Certificates",
+      "source_sha256": "8fe99fd8ebc36243bcd6512ddc9ffdf0db493ea9b6c938d34da49ff2f5f30760",
+      "body_sha256": "0f592cb3cf58a07bd9f5bcce5d464f3f769e7eedcf1462168011a5a1e96edefc",
+      "imports": [
+        "R5Kernel.S10C9Checks0",
+        "R5Kernel.S10C9Checks1",
+        "R5Kernel.S10C9Checks2",
+        "R5Kernel.S10C9Checks3",
+        "R5Kernel.S10C9Checks4",
+        "R5Kernel.S10C9Checks5",
+        "R5Kernel.S10C9Checks6",
+        "R5Kernel.S10C9Checks7",
+        "R5Kernel.S10C9Checks8",
+        "R5Kernel.S10C9Checks9",
+        "R5Kernel.S10C9Checks10",
+        "R5Kernel.S10C9Checks11",
+        "R5Kernel.S10C9Symmetry",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10UniformData",
+      "source_sha256": "3a99f2b98be6360a0529fe8772266042601326d1cd04de446468b8f8e76655e6",
+      "body_sha256": "b8dba1c1a8b95c33cb684a4b45247b7a9ee7195144bdb287912a614b49e74408",
+      "imports": [
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.OddCycleEmbedding",
+      "source_sha256": "1ca58496debc94891c2b009a1ec7961412cac40cfb5b9eeb6aae953c80518b90",
+      "body_sha256": "a357fce3d8d23af5888113c68fc6bda6cb264155374a79a6bd6a4df10913cd1b",
+      "imports": [
+        "R5Kernel.Parts.M014",
+        "R5Kernel.Probes.S11C5CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.SmallCycleEndpoint",
+      "source_sha256": "9a9623e646430cb990ed610b97c1598e90e5c647feee56cc873c5d9a60146d35",
+      "body_sha256": "e0620e7ba3b62314beb3e74bf2ec5e4b92da93ed61b4906924ca180a8b213746",
+      "imports": [
+        "R5Kernel.SmallUniform",
+        "R5Kernel.OddCycleEmbedding"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10Dispatcher",
+      "source_sha256": "02ff13cd2d96a22eae04780d01d1c02e8c5b2fabdfb13677b3937e339e7417a7",
+      "body_sha256": "f84dd30194b42f3e6fb3e872ed8da846bb98c912d5e24063b660cedb0b9f8f4a",
+      "imports": [
+        "R5Kernel.S10C5Certificates",
+        "R5Kernel.S10C7Certificates",
+        "R5Kernel.S10C9Certificates",
+        "R5Kernel.S10UniformData",
+        "R5Kernel.SmallCycleEndpoint"
+      ]
+    },
+    {
+      "module": "R5Kernel.S10LegacyAPI",
+      "source_sha256": "07be595046519064a4ac015597d34ba80fb5a69526a0b62a5399bcc1f2076c9f",
+      "body_sha256": "ed6f2c48aeffcbfeb42931a1bfd1adda1b6418f6d67b5c0ae6a3e167b1137b88",
+      "imports": [
+        "R5Kernel.S10Dispatcher"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5BlockSymmetry",
+      "source_sha256": "07247d1cc8514ae0d62f1f2c1f7432b4af5405981f3b6cf435c702fcbd13c365",
+      "body_sha256": "45eabbc321ee5c3b8b6c65ba71fc9c90c264d6a5760faccf222fb88586c9066e",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk0",
+      "source_sha256": "5b6d8b62333e7e192af77b013c992bda0aaa607e2d7cd4285503ffc4b0de3cf2",
+      "body_sha256": "f794469c74815e7e7ec212a889bdf672df3bc9cdc7a2c1e0b4bfdbb89f330f47",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk1",
+      "source_sha256": "15bd5d9e10d372cb30c5318bfcc0f05ef6a235dbb83606e99c19938d859ee384",
+      "body_sha256": "685ff3a360116d218ac877754ae703559de7a176c5580ea20aa97dc11e71a812",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk2",
+      "source_sha256": "8318ea9d90220ee7adbdc99b084f55ab1b966d1823b6974f54d6aac654d3aab2",
+      "body_sha256": "4e10d7f3b0dc8ca65302cd249b54d044075d52f55daa6b693ee7ee3e4f0551f1",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk3",
+      "source_sha256": "0552b7875a1d33c7a8fc7b964538e3fce9df08387d3818666c5921787a233a41",
+      "body_sha256": "6f8aef63ac36e1ef0195d2385fd95cba91d5048e54593a91ef792a890ccf3cf7",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk4",
+      "source_sha256": "7ed175d544983454583e2e9dd6a52a5ee6b2cf7b8584ef66ee9c8edc1f74dee3",
+      "body_sha256": "e9131819bad7d8e2ba954d49985e53b8910ed20a17952d5360824730df84ea11",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk5",
+      "source_sha256": "27fa6d791b70824ba8770a9624346c0ed119998542a6338b1605066c12360640",
+      "body_sha256": "268c68779fe57749dffeabf927872385e378bf9cdcf6d3bfd26f577f735c396e",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverBoundChunk6",
+      "source_sha256": "ddf5030a24a34c025ea6982844e8e73df3038cb3d482ab50d6f4df282d64b309",
+      "body_sha256": "8555c8bd3f7df9a122234c4e6ad81b525f411b0649cf4af4b7bd48d3f5b0dd17",
+      "imports": [
+        "R5Kernel.Probes.S11C5Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5CoverChecks",
+      "source_sha256": "d0fc575c36daf1b371a86f44cf373774c322aa91154ad44f5c2e5f7286920def",
+      "body_sha256": "cfef65a13123f64d0f46e789fc7c6d0025e507a73cf6163965d9a5315ae5224d",
+      "imports": [
+        "R5Kernel.Probes.S11C5CoverBoundChunk0",
+        "R5Kernel.Probes.S11C5CoverBoundChunk1",
+        "R5Kernel.Probes.S11C5CoverBoundChunk2",
+        "R5Kernel.Probes.S11C5CoverBoundChunk3",
+        "R5Kernel.Probes.S11C5CoverBoundChunk4",
+        "R5Kernel.Probes.S11C5CoverBoundChunk5",
+        "R5Kernel.Probes.S11C5CoverBoundChunk6"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Beta",
+      "source_sha256": "c0defcfe4fa6d98df2f9468e54ff8dfc920904e7944d1fd5612439874ef450f8",
+      "body_sha256": "ec9649bdc4efe96092a58ca5bc7179d90bddd370e955e5f9e60ffb20e1db3231",
+      "imports": [
+        "R5Kernel.Probes.S11C5BetaData"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5SingletonData",
+      "source_sha256": "e3b8a74fd805f1ba819ce999956e8be1898aae01de823d60da492ecaca23024c",
+      "body_sha256": "265dae64f0a5bfe13a7fd3ed6e9576bb46df8754765978c7f79efa0e69ccb668",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Atomic",
+      "source_sha256": "d3fcd64d92eee7261a2e14de0ed756cc789ccba982787f8e0884559c5a3b9911",
+      "body_sha256": "bf6bfa4703a2b5d206816326ab5b81a03071ea88246b95bcd68d77849101fec6",
+      "imports": [
+        "R5Kernel.Probes.S11C5CanonicalDefinitions",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Analytic",
+      "source_sha256": "ece154712bc8fe9fe160d03b1bebccc28629f87d4743dd2ff989cef9086189b3",
+      "body_sha256": "e5fdc8631ce555e7e191218900e28b0ac8968948ac9b7e78f715bc39138b9e4a",
+      "imports": [
+        "R5Kernel.Probes.S11C5Atomic",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5Certificates",
+      "source_sha256": "dba5cff740fb224e29d659349d82378cc91706a439f6f6a924221cbd6917aa78",
+      "body_sha256": "7bfb9994ef785e76389b28dd6258d9caf8ed58344089dd3f999a4dad00668e8a",
+      "imports": [
+        "R5Kernel.Probes.S11C5Local",
+        "R5Kernel.Probes.S11C5SingletonData",
+        "R5Kernel.Probes.S11C5Analytic"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5AllCertificates",
+      "source_sha256": "e5cbe80b7bad6c157cbe8a704dcf3295ffa6e4c542b8d4524e872e3ec1a46147",
+      "body_sha256": "e6793fcb25ef80cec3c5b96310513098042778227cb3226ee1d6b3579513c4ba",
+      "imports": [
+        "R5Kernel.Probes.S11C5CoverChecks",
+        "R5Kernel.Probes.S11C5Beta",
+        "R5Kernel.Probes.S11C5Certificates"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5OrbitTransport",
+      "source_sha256": "004a2163575075a2239770a41489bd1a6dfb897dc913777d9254191856734357",
+      "body_sha256": "7f2b6ee8366b5d8de6c7aebdf53b44b776500b829b350ef177d9037667237212",
+      "imports": [
+        "R5Kernel.Probes.S11C5AllCertificates",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C5AllMasks",
+      "source_sha256": "86df5234ec38e506c5a44aa6f68421ccc012eaa8fd370f1a0cb6ebcbe397f097",
+      "body_sha256": "e766a8f98bc6449af3636f58b55a2620fe5d59003d6078aa86fed160889cefc1",
+      "imports": [
+        "R5Kernel.Probes.S11C5OrbitData",
+        "R5Kernel.Probes.S11C5BlockSymmetry",
+        "R5Kernel.Probes.S11C5OrbitTransport",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7BlockSymmetry",
+      "source_sha256": "5c7ad1c75b8a4f45f3d23894774d466df33b78b5f1704cbd42411c977d0f6b8f",
+      "body_sha256": "3f55063c21dab9ac91bb785199622b553e883436ef6e32b75696a7636c92b267",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk0",
+      "source_sha256": "32569b3adba091c8662e23d025acaacc34762166a129696197e50c8f8b260c98",
+      "body_sha256": "7157fa1076ae4e70c2c5dab673905d73f3cd2e68ffac966251ed3d2fd0d8848b",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk1",
+      "source_sha256": "8af08de23b7483979773efdec26331010b8fc3062737842df563ab3ab4a43d54",
+      "body_sha256": "18833bf2bf9dd1f0e668f4aca1d168fd5cad07db51990fca40353f2a2d353b8f",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk2",
+      "source_sha256": "7691980be6f3464c568f6d98a5617152179d349f6475f774f94a77d57afb082c",
+      "body_sha256": "cf0d2c6da1718f145ff7a7cdd352437dac9dffca03de35b99c863295659665a7",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk3",
+      "source_sha256": "07c21300afcc291bf619cf339a357346b8fa11d0cc576d6cfd398472f4e77459",
+      "body_sha256": "446e4974092cc4c9399df24f2a9fa9ca53b4f509370351ae3e7ee565d4f865c4",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk4",
+      "source_sha256": "c91abb3033fc9a226595b927ea63798158ba8459ddeca10854419974281d2c34",
+      "body_sha256": "68c7406ab6d7ffcca225dcf8677722d74867bd3d37f45b9165f0edadb436de70",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk5",
+      "source_sha256": "085566f96c9ff80038200932adc2d3b93f5e17f606c07db9234ca2d0de78de8c",
+      "body_sha256": "fbb1f98802eb70067a6f898289555b9b9b4517efb5a31ac3df41c5ba4e99a6fc",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk6",
+      "source_sha256": "4025cb387d60ce5a7e641b4c331a275136df2b79d1de3916e9e46ec4421aa4c3",
+      "body_sha256": "086b742e69ae3dd8c1d520d83f483468a5554b381756c9329d4174ab9df3a86d",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk7",
+      "source_sha256": "8a4a52d540538a7ae34b8f88525dbdf05e955cc3398bf44b466d3b10c571e5cf",
+      "body_sha256": "48d5b8c99cd6b9802eab64e30c86160ad68e163af4e45f59e34511480eeb33d4",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk8",
+      "source_sha256": "09f9a5fb96e4435a1aa079cecbaaf1153eb62312ab26c1f07191be5282a71557",
+      "body_sha256": "7f772f04ed6c71e86c086bedc413a44a6f1b26b7024ed7163967dff481837114",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk9",
+      "source_sha256": "16ea7a61fd4b75a602b24a7afcef315441825ff1b863e4a5e3dd41c45377d4f3",
+      "body_sha256": "d0f7ec4fa238e76945188f664c06dd6a2097594465a722b089a41bc07ba8c4ab",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk10",
+      "source_sha256": "1b7275b9aed3d752397af3f552be9e2dd58561db937ee2958ad84424d1680ca0",
+      "body_sha256": "b8dbe4f7e29a82194319b696e6d75efe2b394333f84b00df2fe220503f6d2337",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverBoundChunk11",
+      "source_sha256": "0c5b35c98091e2474b7b1fb2527b40f4230adb2fb71accbbcef1cd98232e5598",
+      "body_sha256": "93515464937ef3de070d0bdfe103a0badfc888363533e3a9078c4a9d53b9ad14",
+      "imports": [
+        "R5Kernel.Probes.S11C7Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7CoverChecks",
+      "source_sha256": "292bddbc21a082224eacc86716593a2ca7a8f8705c0e070460b319a40c2a4a83",
+      "body_sha256": "fbb1774ea5012421e9b29893a44b5579ffedc698ce4c6166e55072bd10cd29f5",
+      "imports": [
+        "R5Kernel.Probes.S11C7CoverBoundChunk0",
+        "R5Kernel.Probes.S11C7CoverBoundChunk1",
+        "R5Kernel.Probes.S11C7CoverBoundChunk2",
+        "R5Kernel.Probes.S11C7CoverBoundChunk3",
+        "R5Kernel.Probes.S11C7CoverBoundChunk4",
+        "R5Kernel.Probes.S11C7CoverBoundChunk5",
+        "R5Kernel.Probes.S11C7CoverBoundChunk6",
+        "R5Kernel.Probes.S11C7CoverBoundChunk7",
+        "R5Kernel.Probes.S11C7CoverBoundChunk8",
+        "R5Kernel.Probes.S11C7CoverBoundChunk9",
+        "R5Kernel.Probes.S11C7CoverBoundChunk10",
+        "R5Kernel.Probes.S11C7CoverBoundChunk11"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7Beta",
+      "source_sha256": "8cefaa7bff4ab4b6dd1520bf76c8baa54eeddfa3e23cf249ae8b52984599cb55",
+      "body_sha256": "f9b1289cdc2079f588c77f5519d1c7b2377ba261b4da266c4d1d8e8d3be19d1a",
+      "imports": [
+        "R5Kernel.Probes.S11C7BetaData"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7AllCertificates",
+      "source_sha256": "d03637551dd170f039f6495a3ca7bfee17861dbe4da491e4d940c9cb87a74049",
+      "body_sha256": "efa678d244153c12fa1f487979c2297f027a41f484a905620d470c6627333486",
+      "imports": [
+        "R5Kernel.Probes.S11C7CoverChecks",
+        "R5Kernel.Probes.S11C7Beta"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7OrbitTransport",
+      "source_sha256": "6cc2fdf7b11d7c9530dde460677ec2529569f7c183934f7f82e22210c8f5940c",
+      "body_sha256": "18b72f0762950b43ed6befff35b36a97f7d34ae7aa8cb6cf575c7248fcd2419d",
+      "imports": [
+        "R5Kernel.Probes.S11C7AllCertificates",
+        "R5Kernel.GraphSymmetry",
+        "R5Kernel.Probes.S11C7BlockSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C7AllMasks",
+      "source_sha256": "38e46bb3edd5be8e6dbc00ccb4cc53094f7856170880129d1b21ee3209e639e0",
+      "body_sha256": "b57739be989db01e33dacc6562a8d7db913edae89f1cbbbeb2c69427afe28cca",
+      "imports": [
+        "R5Kernel.Probes.S11C7OrbitData",
+        "R5Kernel.Probes.S11C7BlockSymmetry",
+        "R5Kernel.Probes.S11C7OrbitTransport",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9BlockSymmetry",
+      "source_sha256": "0146eba9c99e87631118e0f1ef3289328a0fc4098ac046352be0da5614436dba",
+      "body_sha256": "499c1914d9008299c9319fc6cf6760cee05d907257720b0e99b003ec41fa8a2e",
+      "imports": [
+        "R5Kernel.Probes.S11C9Structural"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk0",
+      "source_sha256": "cde45b90a32c67a34d6ceae5d3b66ea2ef6f72d1c08c216d22e942e66805e267",
+      "body_sha256": "c01f0d539537ef9cda1c808916bd5ea48cd380cd978ce7f9e7251696dee76bd5",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk1",
+      "source_sha256": "11a868a6cc7f8f9816d3523969c963763f18078829daea427e9aeffc3e7219dc",
+      "body_sha256": "0e2fcade506430d7754f5b5fd2c43fa8350c11364362a65426c56cc63792f85a",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk2",
+      "source_sha256": "3a6aa831f9cab7f413ab8810a7709e334e4751d5cec80bf9d884679a60aa42f5",
+      "body_sha256": "2c0ff52e5cc8f87b7fee91ccc86be678c06ba00ebfb97b2956390d31222a0105",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk3",
+      "source_sha256": "5c3fcd5d01be5a8763ef31683f71511f31e95ce3aa97b20f55a18c3c92398ce8",
+      "body_sha256": "b68044c0f565d8a778d51c6c8853255937e48f638941f7fd5ae8b1f4920567e2",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk4",
+      "source_sha256": "be65c3975115320f484a668b53b4ac160ea7ef364266032292adf77e8f81c27a",
+      "body_sha256": "3c88d461a39f38ee01525e65e1c543303ee2ca95339d273f7ce095a01856ab3d",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecksChunk5",
+      "source_sha256": "258a9161d289e086fb233f815d96a10cf3f42bf0d63f77b84a78c510e5a1e798",
+      "body_sha256": "6b8d1193239a366c5d8ee839519668f47d98d589bfdf09957879776c1bd6085e",
+      "imports": [
+        "R5Kernel.Probes.S11C9Cover"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9CoverChecks",
+      "source_sha256": "52cbed7c8d3eb3adcdbe365b7be8b11a6cc1fd7ac0339b96f7afd8f0df19d8c9",
+      "body_sha256": "bc0a13aacf0f6a9c1ee670bc096afb41dc1001725a70d46baf81dfa592f711c9",
+      "imports": [
+        "R5Kernel.Probes.S11C9CoverChecksChunk0",
+        "R5Kernel.Probes.S11C9CoverChecksChunk1",
+        "R5Kernel.Probes.S11C9CoverChecksChunk2",
+        "R5Kernel.Probes.S11C9CoverChecksChunk3",
+        "R5Kernel.Probes.S11C9CoverChecksChunk4",
+        "R5Kernel.Probes.S11C9CoverChecksChunk5"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9Beta",
+      "source_sha256": "14144075d7eef5c374dafab1324fcee1359de0b9c8ae68ccf07b28b34cfb4c62",
+      "body_sha256": "5ee767875d46f7cd4a068817a625f779055f8238fffe80e38dcd0494725e8985",
+      "imports": [
+        "R5Kernel.Probes.S11C9BetaData"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9AllCertificates",
+      "source_sha256": "b4d9cb88d48e6fce6de3e7e5b3041425528dbd2bd921a0aff0ff249d33e077f4",
+      "body_sha256": "e7b4cbcf78664d91abe583d64f21b5c2d7c8c25c5c583662fce465491640ceb4",
+      "imports": [
+        "R5Kernel.Probes.S11C9CoverChecks",
+        "R5Kernel.Probes.S11C9Beta"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9OrbitTransport",
+      "source_sha256": "b19a464a822e4deac2719b8cdd28e27538dc199735334a54207679836707505a",
+      "body_sha256": "764c55b0cf47445465f499f3322abc304a39fa5957be94b00d51ee46106d688c",
+      "imports": [
+        "R5Kernel.Probes.S11C9AllCertificates",
+        "R5Kernel.GraphSymmetry",
+        "R5Kernel.Probes.S11C9BlockSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C9AllMasks",
+      "source_sha256": "2863f97d695d7bb6ee0a8fe98e500b2813b090644e7d0df4636a6cb016fbf86f",
+      "body_sha256": "59d44285bac5f6409f425fe69ac35dcacb65de79f7f631057d849af60d7048b0",
+      "imports": [
+        "R5Kernel.Probes.S11C9OrbitData",
+        "R5Kernel.Probes.S11C9BlockSymmetry",
+        "R5Kernel.Probes.S11C9OrbitTransport",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11CycleBounds",
+      "source_sha256": "99401720a13eecbfc05bc393b205db23aa26dda8222de1d4a9ba27c13bb269ca",
+      "body_sha256": "34ca06ee5cc236496ba4252053cb01746c88d1474e4f26ee8597d6868c513d64",
+      "imports": [
+        "R5Kernel.Probes.CycleSurplusBridge",
+        "R5Kernel.Probes.S11C5AllMasks",
+        "R5Kernel.Probes.S11C7AllMasks",
+        "R5Kernel.Probes.S11C9AllMasks"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11C11EndpointBridge",
+      "source_sha256": "b9d7601992e85cabbb189bd26b4c59ae62f26a87e837ccbff9718b352dd22d0b",
+      "body_sha256": "682a9c7bf6c26b764f93cb8f6a1e39da24aff78c50bd38e6288cbdd9c3d6f641",
+      "imports": [
+        "R5Kernel.Probes.S11C11EmbeddingBridge"
+      ]
+    },
+    {
+      "module": "R5Kernel.Probes.S11CycleEndpoints",
+      "source_sha256": "2d608716fbdad580353902f46dd49aa8aff2e0085360f67f4ed7652f35501bdb",
+      "body_sha256": "b6c0e78f01a1c4395dc6c301f86f13e351007b30a192dde0ab597c7787452378",
+      "imports": [
+        "R5Kernel.Probes.S11CycleBounds",
+        "R5Kernel.Probes.S11C11EndpointBridge"
+      ]
+    },
+    {
+      "module": "R5Kernel.S11Dispatcher",
+      "source_sha256": "22f299016175fc533c3a5e1608d8b23b556f6c1f2aedc56cbf8ddc2c5c4a6352",
+      "body_sha256": "370779a4788db2658f4b4beaae6b0ac8e2229dc61b308caf2768a59e1816e56c",
+      "imports": [
+        "R5Kernel.OddCycleEmbedding",
+        "R5Kernel.Probes.S11CycleEndpoints"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M078",
+      "source_sha256": "ddaf47a5a465f668ce62daca83ae54186d1d1cd8478a307cd1ac97a0dff28514",
+      "body_sha256": "290336d77c71804c580185e98def7e67df8867f042a2eef30b00f13c47b207ed",
+      "imports": [
+        "R5Kernel.S10LegacyAPI",
+        "R5Kernel.S11Dispatcher"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M015",
+      "source_sha256": "f177eabf8f396621898d91e6fd3f41a80a280ff1f22be1e59b23ed744a7d5780",
+      "body_sha256": "4aef776102bbd1834752dc35614221c7a393630fc8a4b9ea849e545338d6ef58",
+      "imports": [
+        "R5Kernel.Parts.M014",
+        "R5Kernel.Audit"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M016",
+      "source_sha256": "30fd71fcb0b4349bbfbbb19999155d30abad61e2d6a9ad74753c0d44ebb7b20a",
+      "body_sha256": "59940d5cff8662b4033739f1c302dacb4f24bbdbeab50e0f01eacf1be7e8ea42",
+      "imports": [
+        "R5Kernel.Parts.M015"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M017",
+      "source_sha256": "475c23b4efd0f7236634c896ed7ce7ba509d3233fff156fdda7d812b01537a22",
+      "body_sha256": "891f453cdcdd8223368a0b71bc465967895d7a14d2b0f4b4be117bcdeebdc8d0",
+      "imports": [
+        "R5Kernel.Parts.M016"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M018",
+      "source_sha256": "0efb448125b2749f24675dc47c963eaa2c75167b52ee2d8efed5f7adc460e813",
+      "body_sha256": "98e40810410a4fde1c833e0dcc0109359e348c5ea746a1d58a53bd2842f409eb",
+      "imports": [
+        "R5Kernel.Parts.M017"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M019",
+      "source_sha256": "028e9d9af4f89dc193949b9a1c9f029ee2ae332b056f6306b45e545c583d5e62",
+      "body_sha256": "4c03028594cd58d898c5e2af89790ccafaa24e8917b7522923f58b655afa5071",
+      "imports": [
+        "R5Kernel.Parts.M018",
+        "R5Kernel.Probes.S11C5CanonicalDefinitions"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M020",
+      "source_sha256": "81c8553ff98192f9c10b0eb04325f1e78ea7d4b93f7ad42cb7a290c28e2bbde7",
+      "body_sha256": "b6ba838631d76180d04b52366aeb894508a545c6c20ae34d091c19366b4a122f",
+      "imports": [
+        "R5Kernel.Parts.M019"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M021",
+      "source_sha256": "ae32dd986583e42d195012f9978306114197b9c9c7b8f8de76329f24004b4f17",
+      "body_sha256": "8de7a027c6e7aaf1c56b1e52e31ef0c0b63018eb5cd8f3602ecda9b302cc41bf",
+      "imports": [
+        "R5Kernel.Parts.M020"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M022",
+      "source_sha256": "755ae43c543e2ff4e38d18a9a35f0cb8277de34d4dcd1d9630908aea89c4ec80",
+      "body_sha256": "356249931dce49f3e8d12d8fc4b5dd617a665f0b3a50edc3b3f992440536a1c0",
+      "imports": [
+        "R5Kernel.Parts.M021"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M023",
+      "source_sha256": "e5770b32ba8bff254b8b08e91b2ad6ad9f021f95165ec926ae61fda387ea6f9a",
+      "body_sha256": "1aa9e1f5c862b8e392a9dcb5502018826316bc586fa088ee75124de179b7653a",
+      "imports": [
+        "R5Kernel.Parts.M022"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M024",
+      "source_sha256": "245cb51c12d8766016d18ddd28ccc4b0ec70c8cf0e15b18b42664595bb60ca77",
+      "body_sha256": "82f467994c13b26eed0fd0007583a8dbd1d1b11545b8ee07c6509b97e11c6a10",
+      "imports": [
+        "R5Kernel.Parts.M023"
+      ]
+    },
+    {
+      "module": "R5Kernel.SmallGraphColoring",
+      "source_sha256": "4e20d8df8b962baa09abc63798c77c518c6a98d15d5ac5ca4a6b00a3cab53ee9",
+      "body_sha256": "17d0417aed2853609ebda5407801457a5cdb82fc76ca72b24a44872e896a585e",
+      "imports": [
+        "R5Kernel.OddCycleEmbedding",
+        "R5Kernel.Probes.S11C5Local"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M025",
+      "source_sha256": "10443f2510155da1ab5ba67b8c55790b0daaa897f233ad0fe8534cf283805211",
+      "body_sha256": "23e7fa05366efd9d5780ae69ba8ccf2d9d4e0510551fe207e4ed28ebe264c887",
+      "imports": [
+        "R5Kernel.Parts.M024",
+        "R5Kernel.SmallGraphColoring"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M026",
+      "source_sha256": "9f9420ae7987e0c61bcd34351a64f9ce9f9d86f5c7e7de71239d33498711d8ef",
+      "body_sha256": "4e9f4fd99cec0c5f7dc3dd1dcea8de6aa7702cd96267adf75a90fe4d93d5d2ba",
+      "imports": [
+        "R5Kernel.Parts.M025"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M027",
+      "source_sha256": "edf8ec231301d8799405943b5df1a1cb62882ec896a2d71ad470db8c9126b016",
+      "body_sha256": "2a9db11dc6fdd71aecfee51fb2dee559278a38bd1a87048d0a18534c9de34ca8",
+      "imports": [
+        "R5Kernel.Parts.M026"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M028",
+      "source_sha256": "759dcaa8e9d28a609a8f1ac1402cb688a34ac6bcb603a14bb2efee81cdbf160f",
+      "body_sha256": "1a846860d236ddaca428067c6a75b484657b2489d82fca7387a733218f881cb9",
+      "imports": [
+        "R5Kernel.Parts.M027"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M029",
+      "source_sha256": "1d8c6af005d4c7c54b231ecae666012b10c06ba106631a335a317703332e25f1",
+      "body_sha256": "3619cb2b9692f97ff14fa3f69b29177736adf46b8612a0e4c6cedc43c7b93558",
+      "imports": [
+        "R5Kernel.Parts.M028"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M030",
+      "source_sha256": "11910a177242a6e843aa03e51a21e2408ec9d1a3c27a1df5bb7f17c4fa59ee93",
+      "body_sha256": "6d6ed24ace57783e4c7a4e1b01492ebe6947082a9c406994ecb127d064db32e0",
+      "imports": [
+        "R5Kernel.Parts.M029"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M033",
+      "source_sha256": "8c0c1f5a96f21f6b5593651c7bbc922f6088c4ba6a258456d55976d673889fa2",
+      "body_sha256": "61bb709b402f9753f303f3d85e91ccbd1b1683e85591fa0de860165816a1a25d",
+      "imports": [
+        "R5Kernel.Parts.M030"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5Structure",
+      "source_sha256": "21036fa2f0eb5367a0bd1115af7a1b16edba19678083d65f35bb9e37ead92eee",
+      "body_sha256": "f1de8f12664d69ca1e32d10d6876c9cf929b010d64af58c8ec34217aa16d8639",
+      "imports": [
+        "R5Kernel.Probes.S11C5OrbitData",
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5Data",
+      "source_sha256": "68af92deb46ba3e4d6803fd318f0e8c522019f250e52dfdd8698c75a78477277",
+      "body_sha256": "d12e12abd378da58564b6ed788328e077004eec12bf60e69b2b8905c3be1c2a5",
+      "imports": [
+        "R5Kernel.S7C5Structure"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5Checks",
+      "source_sha256": "257a0a0ee540e009863ee396bc26425653a9755c91953e7d177c49487cd06f4d",
+      "body_sha256": "7e87dc5df178492b0071f8cff1877d275ddcfe8c41a6e739abdcdf4271529e9f",
+      "imports": [
+        "R5Kernel.S7C5Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5Symmetry",
+      "source_sha256": "f7e1999cfe72b071efe3574f0e1d932930aa57c075a3a670e0c2c84353b87934",
+      "body_sha256": "7f13948c60e0f3d14f9ef9a722d12f4a8b5cab0f0672ed3a493061b81bee2d6e",
+      "imports": [
+        "R5Kernel.S7C5Data",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5Certificates",
+      "source_sha256": "e8a5c09375fd3d6915fa93d596e56db198892055aabbe4a48596f6d417032407",
+      "body_sha256": "4f2d8f7c87d27f87ac1f2781e47e368e60d572d8ed6b91247101201152d704e5",
+      "imports": [
+        "R5Kernel.S7C5Checks",
+        "R5Kernel.S7C5Symmetry",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C7Structure",
+      "source_sha256": "c6ed3ffbe7f8501bc728e3a8c1389d99336a7071bcd8dd1111ca60d67d33a353",
+      "body_sha256": "20b0b9c18582606e7653797ad016aa0add76610bbfcd2495699972dc402fe78f",
+      "imports": [
+        "R5Kernel.Probes.S11C7BetaData",
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C7Data",
+      "source_sha256": "3d9d5b5e363b1f28f2a689a4692dd17fc0aed6c77308344d9b281294e5ac54ed",
+      "body_sha256": "522f63c3558263a970b0f453bf8356cf93e107b7ba76965009a67853c117fa27",
+      "imports": [
+        "R5Kernel.S7C7Structure"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C7Checks",
+      "source_sha256": "18da9a35a5ae0504d9abb54e0b4e68c2bbefe3aedabafc20f37364d24bd84907",
+      "body_sha256": "4eefdf2143b6d6d449f9edb482ab23ffb5055ca80414416f2a42843477628daa",
+      "imports": [
+        "R5Kernel.S7C7Data"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C7Symmetry",
+      "source_sha256": "e5f2974e99535d5a1b85eb3896154535e01a06aef6648b76f99be7ee8caef4d0",
+      "body_sha256": "952f4506d2f3f5734cf24608279c7011f785d52d01aff7f00bba4711eb6d6d71",
+      "imports": [
+        "R5Kernel.S7C7Data",
+        "Mathlib.Logic.Equiv.Fintype"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C7Certificates",
+      "source_sha256": "c437243d53851026586a644ecc6f89d1d0bda48cb42dec6d31b677ef9ab2560a",
+      "body_sha256": "b802d7e4450cca7e49f8a33668a139e0ef61fc0b243979058ee9558fc6e34730",
+      "imports": [
+        "R5Kernel.S7C7Checks",
+        "R5Kernel.S7C7Symmetry",
+        "R5Kernel.GraphSymmetry"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7C5EdgeBound",
+      "source_sha256": "1b8c8832ba856a1a684b632566c27ec5a5d98acc0f3a52fd615110a345cb3e12",
+      "body_sha256": "7c9a490a64028c828329ceecdec189bcbb3e31a3670c31f8d2cbb63def051c6a",
+      "imports": [
+        "R5Kernel.S7C5Structure",
+        "R5Kernel.SmallGraphColoring",
+        "Mathlib.Combinatorics.SimpleGraph.DeleteEdges"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7Dispatcher",
+      "source_sha256": "6ce24e3c75456015aa57bd7417661772899b4cad1094c0efad58be1cfb4ab6ad",
+      "body_sha256": "d7526f75ad318b6499049d0cb125818791a01d03646c9235502ff0ea3e433bba",
+      "imports": [
+        "R5Kernel.S7C5Certificates",
+        "R5Kernel.S7C7Certificates",
+        "R5Kernel.S7C5EdgeBound",
+        "R5Kernel.SmallCycleEndpoint",
+        "R5Kernel.Parts.M024"
+      ]
+    },
+    {
+      "module": "R5Kernel.S7LegacyAPI",
+      "source_sha256": "6fde181f5af8c1c6054664fc5813f56d9379be4e71a45ba4b67594d55bad8c90",
+      "body_sha256": "82e174e1c52f007a7e0ea7f839395a30f3dd87bfbb31e93609a6d3fceab18eb2",
+      "imports": [
+        "R5Kernel.S7Dispatcher"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8UniformData",
+      "source_sha256": "43390acebbe8984932b5f868f13deed0317650ad74873c3e3002593d13ae2ef5",
+      "body_sha256": "c7b76e725432ac3a8afde9e2cb61a5df2d7ae24617e8dfc4dd7dd2ad87b9c071",
+      "imports": [
+        "R5Kernel.SmallUniform"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk0",
+      "source_sha256": "2219d1501def777c84aedfab7a712cd0d08c25e1cbf3753e4d19dcc50e597cee",
+      "body_sha256": "6b3e829ade5998e29ba15d7b63fc132c40042ba378f144b9db8097fdd3aaeac1",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk1",
+      "source_sha256": "8a8fe2351c7888a528d6896cd01294acb631573f3e5fda7356588dbce1224e64",
+      "body_sha256": "462b52d210715b7fe796d30f694e8f3fd3a52d368fe1be5d241d05a33e774943",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk2",
+      "source_sha256": "fef878fd8ca9fbae42296494c4061afe98959e565537ad0cc0b7b71b8ccedeaf",
+      "body_sha256": "bd8f2d8940874d28972ef4b6b5cb83ba66ae3c7540db56d78a57d6a3911dd5d7",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk3",
+      "source_sha256": "7f5998cd8e25766885e5d05033d93963e1d6e1ea64dda8e931c9001ac5d65c67",
+      "body_sha256": "19a2d3f10d3339eec50d1ac608ec0c5852653c5c438a02fe0a7a52632fd4f01a",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk4",
+      "source_sha256": "fdea7646c3e8bcc7361026b0a705a14bc90b65419a0117d21797db42d21aca31",
+      "body_sha256": "70252335fe2330e4134fa5d28a8591727084b21ce9993231a4b5d889837ae1c2",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk5",
+      "source_sha256": "981dd5610b763e6255091e6018d408a0014fd62a223647668eec6bb861affa54",
+      "body_sha256": "da1755951558264d0a937cb7bfcf91800f04d44d6bd601f6130ff437e3a30b7c",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk6",
+      "source_sha256": "e50b902bf9d35ba4d15b015ef6356ab09f44f557cf184e1407690ac2881d6280",
+      "body_sha256": "92494c9f80324532be100fc993c913222d517ef4b642688c11fc19c7bb823af7",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk7",
+      "source_sha256": "9d61d3877c44f0e49f3bec0d71161237897d513ca139469010468f63a4c2e7bd",
+      "body_sha256": "e53ab2c4afa66b349bb2a974f099cf2c748e8a3ca89d2599537d32ba14b29fd6",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk8",
+      "source_sha256": "c310d1670c95ee6e423c42cac007c566e19448264f90886def96b06d7cef7a3c",
+      "body_sha256": "d8783e7fa75c1553cd0bf188d2e7d855e607ce92d977567444bc22e1c7d23211",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk9",
+      "source_sha256": "9ca9a9c0b5966cb100f1d4e8ab741cefcb9aaa9e019376ed0ddb002cdbe3033c",
+      "body_sha256": "e9eb18b5da33ad0cd706d93368f4740f13fb4f31ac3b87790ed22844e6f52149",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk10",
+      "source_sha256": "094f47ab5900f20d3f2b6af01a80a8d0a4a1e34a78278fb43171959853855590",
+      "body_sha256": "ec584f5d749b55af187635529b4f88e58fe1c5652d8dd9ae9b05f3e0e582b561",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk11",
+      "source_sha256": "6683b4a492f87009036fac382caecc492f430d966f13c5bcb53791dee0e6fcc6",
+      "body_sha256": "91f8da6eb2897d2bcb574ff26d7909fbf8e07efb4b02a578a3ce17f2b2b45e81",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk12",
+      "source_sha256": "357fc3b55fec7def295130a1a32044bc1060cdedc5919d525a2678944d618515",
+      "body_sha256": "ffe16188fd5ddb470d92cb14ca1a137a7d29ceae0a09dc789d38ac070b1eb28d",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk13",
+      "source_sha256": "160cbcb5ddd7880bdd381d0f9513bb5c703d7af62411ade0391c429b7cf60298",
+      "body_sha256": "7be0546c8de42255fe5f02afe5ee11f25f175c3d560fe9792ff87bb5db90a7af",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk14",
+      "source_sha256": "fb63cb5cd3bf64a65c4dfef7a6a075569b95ad43979f5dbb3a75daa5afd07cad",
+      "body_sha256": "fa36fbfecc12c8341e4e6929897381a6d5c0ae150bc587f1d2d69b23e8de7216",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C5UniformChunk15",
+      "source_sha256": "d3e21c7d825b3224660d28ac520dd15034847b9a2a7af779d05165ad63c5c203",
+      "body_sha256": "06b6a4f38d5d859b05b8e46db3981274488a4f95811e050d6d5b19eaf8e6dfdd",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk0",
+      "source_sha256": "d077b28761f32ad396205c22c24b7a16d81f6eb767b2959dabc0e0b2bb2d3e35",
+      "body_sha256": "cb03867aa87464d452bb8b275db48d4ef3b8a99c4cde7b8aa7a3fee939505ea6",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk1",
+      "source_sha256": "56b31359b96e54430f8ffb20632723c9dc443606164f609651ecf3df1b53f9c1",
+      "body_sha256": "9c577be67b4922fdbb3661ba7579385cfb7de115a07c3729826cac1c76c0e602",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk2",
+      "source_sha256": "705340ad8a2f82d5d5b377ec53ee2b1a0407b304dc59b2bb48bfedf839b1f79e",
+      "body_sha256": "1e8d8981b60ce1dd936dac843427b091c060d15d4ee69947104a9763518b651c",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk3",
+      "source_sha256": "ae246fc44bba667776fd684c37e3d033cb63f8fdd426b1da1f92673d972c7e08",
+      "body_sha256": "bb1a527159f05130972d6ef9b5f0364300f9f702cb9e403e3f8a8bef38c918c9",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk4",
+      "source_sha256": "46b181f224bb44c22c341d92b8e8e2cfef80bc4a1593037554398fcf54557a7c",
+      "body_sha256": "841b9948566525f12dac3fa78ae3f9b1733b55a18087137d12d86e917129cd75",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk5",
+      "source_sha256": "000f676528650ed27453e84b38be404939253e50f54dda4a2e9cc840144b0266",
+      "body_sha256": "89a61726269d2d3f2679e43ce80351b75cfa53c0b4bed1b06b4d2863f1423f42",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk6",
+      "source_sha256": "5dd9ca72b4ce2bbeafef6663ef2e640a7a949e2bcf821bf07e37f6723c81e240",
+      "body_sha256": "2e7a4921564ba685fd821b40ad33382fa68727487c10dd1202325f36c7b3faf7",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk7",
+      "source_sha256": "d5bcbbf6a046095ce82d2b3f72627b20a8fc544e94c1ef187cae34dcf667af10",
+      "body_sha256": "457c6f449f4bdc790421f734a99df78e1807a675f8c12c2c4d9a7f0886ae34b2",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk8",
+      "source_sha256": "79b6d8aed9dadbb983410413c94fd9207f7a2745e70ed4d7e0ee5950a176714f",
+      "body_sha256": "fb0cdd829275b2bd2ce24394b36afabcaa272bb3389b1e349ce5d350573f88ff",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk9",
+      "source_sha256": "79b3a02bbbcfee7a7a4cbd56f5493456bfcb747ffab45bd07e6aafbf1f051b43",
+      "body_sha256": "35758663618f4e98470bc35ead5d312f68ea1d210f4296f13a0a9f998c373af8",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk10",
+      "source_sha256": "1979f030c2945af2e1d2101f05f0c1cfcdd8b414f97d697ad4a58ffc57309d59",
+      "body_sha256": "b66f3bde8d7214a327d2b4fc3ae486db43c418787a51c7f95d7b83fcd7e7659d",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk11",
+      "source_sha256": "3de0fc55dcff8e885d0ef1b41bb7abce4b90cad136968596caa30038016dfe14",
+      "body_sha256": "dc14fb473d32e0e3ebf2ac5c65100c3c1013af160973dfccbb24f23a12038634",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk12",
+      "source_sha256": "4f2296f79f63aad73e6bca18ba0e7ec1c47f2ce610a729655284fa3bc98a3a11",
+      "body_sha256": "8d9af443ed1a5ee5e5be7af39c75e6d2912379ac82ab8f9830b01852e4ce81da",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk13",
+      "source_sha256": "73be61adaeb41d1c383297aa119b7cfaf545f2b4bb719f76df85250ffed46c4a",
+      "body_sha256": "18beb4a242fbadf5a9e007d65fed369695ded6bfe85cbc9a4a7a0dbf3796dbdb",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk14",
+      "source_sha256": "512c33d6277cd3cf0e42888d978f561895900c6e7b64daa34368a82402804d67",
+      "body_sha256": "6fae3db7cb518fa139e11d62c043fa7acd774dca409e186291c2bfb4ec499735",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8C7UniformChunk15",
+      "source_sha256": "4cccbe9ccff6f786ed095fa09be58ffd2970797efa2a3e589a17d813c2fb2548",
+      "body_sha256": "57b65f70c830bd4f60524edea9af899ea6b5ca8e4c54a43e582f8a61cb0c226c",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8UniformCertificates",
+      "source_sha256": "1105bb4a063dd6ed8c31c70214c3f27d08b0a117e028a5fa5ef1621a8d5b08c5",
+      "body_sha256": "85438bd976bb45b587af757227c864d34dd2dc31397ef430f28806e469fdc6e1",
+      "imports": [
+        "R5Kernel.S8C5UniformChunk0",
+        "R5Kernel.S8C5UniformChunk1",
+        "R5Kernel.S8C5UniformChunk2",
+        "R5Kernel.S8C5UniformChunk3",
+        "R5Kernel.S8C5UniformChunk4",
+        "R5Kernel.S8C5UniformChunk5",
+        "R5Kernel.S8C5UniformChunk6",
+        "R5Kernel.S8C5UniformChunk7",
+        "R5Kernel.S8C5UniformChunk8",
+        "R5Kernel.S8C5UniformChunk9",
+        "R5Kernel.S8C5UniformChunk10",
+        "R5Kernel.S8C5UniformChunk11",
+        "R5Kernel.S8C5UniformChunk12",
+        "R5Kernel.S8C5UniformChunk13",
+        "R5Kernel.S8C5UniformChunk14",
+        "R5Kernel.S8C5UniformChunk15",
+        "R5Kernel.S8C7UniformChunk0",
+        "R5Kernel.S8C7UniformChunk1",
+        "R5Kernel.S8C7UniformChunk2",
+        "R5Kernel.S8C7UniformChunk3",
+        "R5Kernel.S8C7UniformChunk4",
+        "R5Kernel.S8C7UniformChunk5",
+        "R5Kernel.S8C7UniformChunk6",
+        "R5Kernel.S8C7UniformChunk7",
+        "R5Kernel.S8C7UniformChunk8",
+        "R5Kernel.S8C7UniformChunk9",
+        "R5Kernel.S8C7UniformChunk10",
+        "R5Kernel.S8C7UniformChunk11",
+        "R5Kernel.S8C7UniformChunk12",
+        "R5Kernel.S8C7UniformChunk13",
+        "R5Kernel.S8C7UniformChunk14",
+        "R5Kernel.S8C7UniformChunk15"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8Dispatcher",
+      "source_sha256": "33f51703576d15386a21bd1cb60d46718c107e5d5a1ec912b3be9859e7031342",
+      "body_sha256": "3a3743dfd066f6f687b4e63011e3eaf5dc154db73f8bc37150b3f9064ad963d9",
+      "imports": [
+        "R5Kernel.S8UniformCertificates",
+        "R5Kernel.SmallCycleEndpoint"
+      ]
+    },
+    {
+      "module": "R5Kernel.S8LegacyAPI",
+      "source_sha256": "537b481670765c6eb20fb34440598c23369355e6f7894876c81a17678965813a",
+      "body_sha256": "9f80a3686416567991f11398fb91583a8691e09693964f5c704b907aa8f48d86",
+      "imports": [
+        "R5Kernel.S8Dispatcher"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9UniformData",
+      "source_sha256": "92a75c1695854cf2065169987cc873a85e235b1d46f066333d45c170cf434bf3",
+      "body_sha256": "40755cb376c9fd8b1a34f95820dc6e9f8588f72285ebf318ed28b459bb523739",
+      "imports": [
+        "R5Kernel.S8UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.R5TypeChunks",
+      "source_sha256": "4770b0f243f9e72488a2d40593fe925f2d281e8ac0c90bbe619246c6712eac8e",
+      "body_sha256": "c7cdac778379139a8fc33c0fdc6ce1f6c876e532e87aab63dc2ff13196dd40b4",
+      "imports": [
+        "R5Kernel.S9UniformData"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk0",
+      "source_sha256": "88648d6cc75344bf6985bec5c2457c5d9b08bc46657e68089444b6b802bbf4d5",
+      "body_sha256": "084e9e75e98e34e1ae7bc247f9d9ceae4083d3bae47c226d1e098eb00a8083bc",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk1",
+      "source_sha256": "115808cc50b92dab50e30de3637b5df687d377f3c73eb7e565d6a7bf451fbc7c",
+      "body_sha256": "e47db3dfe0308b8e8d7a0fb3ec2d92722a91ebb49a494046350391c0fb97c239",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk2",
+      "source_sha256": "059a2a7a4e3bc697750f7a2c058d18895b280e6154c646bd88b1c147e1ca273d",
+      "body_sha256": "2703c2fbdf393c022da5b94af6de1c0914838afc70c6ec72a3d9ec3af5fc0306",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk3",
+      "source_sha256": "aebd0fa83943943710c642f7180007e88cf3093519a563376b599da8debb9eb0",
+      "body_sha256": "8355af6a98abd04f244fbad0a50fa349dba54a708a556903643fa31a0d157b71",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk4",
+      "source_sha256": "05f2f256b527e5a3350fc2ffd8af09b3a881f5399488f2d6ef3a19c4dc7524c2",
+      "body_sha256": "4239654848ce5a65ebfefcdd1d1817520a6824c31af9a9f865993ec7c74cde2e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk5",
+      "source_sha256": "34d1a35bcdf2d32336f1ef80792c0fc2b11f057fe3270cb5300e26ca47819d7d",
+      "body_sha256": "a4cdaa2d70f717910cf59a447d199d8fe046a51939c315d2dc8d55ffc554492d",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk6",
+      "source_sha256": "dce54d5a8708769619fa6cb2fc6c4895c24710ed2308fef4eeaa390288b9f3f2",
+      "body_sha256": "6a1318ac77c3beb0b15a4f8933dd97d631ee2e719fc842b70d64658b3dcf91e4",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk7",
+      "source_sha256": "a1b691e29002a4d26ba9355bf2c125e49da78c5b30af497550b4cc9f16acffdd",
+      "body_sha256": "5113661f123b8900f980f1987dfb2cbd402a6b1b78425a055d8e2fa3f28ab687",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk8",
+      "source_sha256": "e156cd282b8959a0c3408c95dad23b8ce0999e5119326caf88845dbb2684b0d0",
+      "body_sha256": "a7b7562876aaa5f361c3e6f081da75cd1f9d92ee44b73da6559655bf90c94920",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk9",
+      "source_sha256": "020ebd58108ceb680746a9e4764ba7fdf3f858cea0012ec9c2aed16df8ea912c",
+      "body_sha256": "f8b53842accf795f9cb572631e05e104e5deb4d1e7e93c77079d3d32a24149a4",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk10",
+      "source_sha256": "32bdeb1b609b7cc39d4526422cc96b975c312d27d78d05d4a547592d8dbcff7a",
+      "body_sha256": "bc24815543319e11c72eb6187c8fe93dfe78aefa6486d970e53dea45dbbc1d1b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk11",
+      "source_sha256": "aefd9ccfb450c5dd65d39a168bdacd886392f6817f8d8f5376ef0235cb517ca2",
+      "body_sha256": "7e5838b8e79d3d075101c32eb79fe59a110fd8aea0650ba0d767da2a86c1b917",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk12",
+      "source_sha256": "a38c8bb169ba8abc5304b554288e4b00a385fa3c4a68052c7dc8006dde82a851",
+      "body_sha256": "595c35911bc119a933ae81a5cddbb01552b4633861ba054fb85049b9e0e6b42a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk13",
+      "source_sha256": "807cb5ccaf1319c35015e8a5c4d2696cdca40612047c9e7939cf01a42ad5bbc9",
+      "body_sha256": "70d43213f1c5dd3d384f3d5e5246fa33736528a8c61dcaa975bade84ea6f8ff3",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk14",
+      "source_sha256": "0bfb9af3eeb4a97cb6fc27115fffe6839dba88ceed70732f3cb301d9188e1c55",
+      "body_sha256": "08218a4456cfa01697d66cf262b34a0fd1b12738038d395a562c9d149fcae378",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk15",
+      "source_sha256": "52c1a6541649ba5bd2cf82e7283bddee59863448aa230322ba4b2b4f6a6db032",
+      "body_sha256": "aab0fa172426305492eaaf7fad3847db915e96a156f45e2082962952ea00e30e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk16",
+      "source_sha256": "bde7faf7b0b365e0656a4d07b2f6f0bbce3a6cfcebdb0e9038684c7f6d17d7bf",
+      "body_sha256": "18ea10752e8e17e84c08052880e42a4390a856237581e5c8da75c1997caa4f8b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk17",
+      "source_sha256": "654ed561a71cf4f50372a667023ede5adb892c6b3392a9466bd8a2f0cdc19c59",
+      "body_sha256": "fdae3f0d33dcaa55959cbaff3b7f1bc04d22ff54752da5565cc25d4a0a4f9fbb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk18",
+      "source_sha256": "05a73b38fc21c1a613c8823c969cf028685751f8da2581179be5e344e22e4d15",
+      "body_sha256": "77ac6e809fb308806075f1803349773f7f3aeb1f6c6954134914679b4e65aad7",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk19",
+      "source_sha256": "6a58df0cdbd48bd1d4db6367d0fd9f903d9ab8e01d7b4de5dda986645fa48a96",
+      "body_sha256": "69d2b242754357ffbfdf8c25174ef1937d22f842a477a25be779aed4abdeb724",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk20",
+      "source_sha256": "841041fd60210d81f5ca48c504076809d90920617039bc884ba8124787aa2d4b",
+      "body_sha256": "851f52571664a2acc25ee358034be446d1afbbe4d04d70d4b58e3ba4592b9abb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk21",
+      "source_sha256": "be02f0ff1233698c1c6d33a1bd9d632ca43e6a8db1f78b8986078391cf8709cd",
+      "body_sha256": "555d10123da5f681a1f91921f057049d8c7177954723bd451e32002a8ae3492a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk22",
+      "source_sha256": "d133b109f4b0f46dae75d1a78393c093e9b5a1f939f1fbd00d105315453b5359",
+      "body_sha256": "08c5a0a55aeb0d847021a09da5ddab0a13c61ecd517020c457df681453f8d453",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk23",
+      "source_sha256": "e5bccf37b83bf19612d56113504174ec969a8350f2311bcb745075566e31c534",
+      "body_sha256": "c41bfcd89ba1e45eb08ba7307d24f2879865939b74c99b53890fd124e026b0da",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk24",
+      "source_sha256": "68c3872fc88d6cb68cf37d0de647acaf86a4af9014901798c4cc93ce6c861cb8",
+      "body_sha256": "ec251843153f9d84083e2767b18090a52ed8638830292221e500074ef816952f",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk25",
+      "source_sha256": "e391e0f6dab84139f5bad51edbc5856a670ebd908125873788ab90ec01ff7407",
+      "body_sha256": "1ac35ee6a6c8599bb3de1438ef8801cb13b8415348997384672f988143337d65",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk26",
+      "source_sha256": "c32de318fa38fd8f468da70b9d18abf40274e2f35c658cdab0807d78453446a0",
+      "body_sha256": "7c3f9bd9f3f0b43f61027900e0abf509dc13d4d8150941525d45f1fd7bfb8938",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk27",
+      "source_sha256": "b0606f9e3461ed020c5cebf22aa2b3502d472148fe3600cd12cfbd3ca207235d",
+      "body_sha256": "c8686f0dbcc299bfd170fe1188cbc471827038766fc7671739786a28012f6c95",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk28",
+      "source_sha256": "e95904118acde96a35a80cb293707935d6b1b929cfe55b4195d423e6c8bc1c88",
+      "body_sha256": "ab4dc226c979e0da18e3ae8c67d2b0cdf1c94b6426f8d76310b31e63eef97268",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk29",
+      "source_sha256": "245bae038e023f3c6f96026efe3490648b3571755803368f81e5b3301f5acb53",
+      "body_sha256": "d1bb9f1c6fc6fe3b4388b68cd9821925318102583203bb41d9a580742b8acb12",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk30",
+      "source_sha256": "cdb2130915f7fdb7d00af74129ecfc7639db585a82f2434ad3c7e9a0242b7987",
+      "body_sha256": "bf0507dc0ff4145144fd988011de4940bac2e036d09ca54c5a536329e50edbb1",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C5TypeMaskChunk31",
+      "source_sha256": "3cdfd009cd4365ff39f37d7418c502037a82c0689bef03c7f13665ec12b368c6",
+      "body_sha256": "5a54cab064dc16bdc59dfa46deb0d0b8cccb23cb7e2eb3b469a8905f2bf830fb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk0",
+      "source_sha256": "2c1718c32d839691cd654c783c8da0c7bed9271fce47d39a5ea81233810b6abc",
+      "body_sha256": "d2efd3af5a934d137ff9f68c06e6acc1e8eb0774d7fa00c9f8a08e713c21052c",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk1",
+      "source_sha256": "abfef973a06a86f3b05cd4c89674d8396eef65649ccc96a0905854764af7e30a",
+      "body_sha256": "9092d092da977e17e90325adf36e0601bfe623466e5b84eacd5a022fd3fa2963",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk2",
+      "source_sha256": "f76957705d3030eec8ba18be3866bf799845653a2069bbcae166eef48c6e808c",
+      "body_sha256": "ddbdca304bf612329720fb225622dafa300451e95e30f1cceac844531b92c051",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk3",
+      "source_sha256": "cf8ab0891f711107977f59685db2f5e841a028c393a1186d437b0b329ccdf418",
+      "body_sha256": "e457f79f37ee2a7b04c41b6361ca8411d60e79acc4c07110ea1b42727aeee2a3",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk4",
+      "source_sha256": "0425b28a5545bf140ecc13073194a4bbac369c68d8fdd3b9c5b3eb2274402ef8",
+      "body_sha256": "89909eeb65ef9424a3d9a7440e2e8ae9041817a1d98cad587fc07a3efbd9881e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk5",
+      "source_sha256": "8d73d8143ca45cf461bcd26f512c522f5a96ab2d76f8d734040b7dab10a12eea",
+      "body_sha256": "f5495815e1f6be0ac13eb2d7063dbf6914f0bbe52f45d13a346f6a854753c0bb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk6",
+      "source_sha256": "36947786df539965af893ee1a3a2a0c442fae0086e0f7a346bcb8b08d961cbaf",
+      "body_sha256": "6d2f94ef6fcd8bcb528b5b58dc245e78dbd61573cbfec3199924cf5f1f695bbb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk7",
+      "source_sha256": "7e49ae224a81732d21a5989b09bde7d112ed862af5be6a5709d286ead177d07f",
+      "body_sha256": "b00cf0ef1ab2d972a50168985d9e7f72c097f82c96e13cd20debdc158d508720",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk8",
+      "source_sha256": "a61d040cbe05248dfe2bc69158ce02496f12b03112488689b438bf867dae0049",
+      "body_sha256": "1afdffc0d9f8273bb8d71725baef86bb3d00d6c5c9c01549a008a2d36d4e954b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk9",
+      "source_sha256": "6c8ea672131f3edb363b6bc7c0d7fb3cded8255d3602dbf41c2226cc37d4a7aa",
+      "body_sha256": "3438d0e20e09786fdce9f1ff8dd01cc0a7250c54da18e63dfeefeda09657a7d4",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk10",
+      "source_sha256": "2316ba2cc55c29d707bc7b671abb7ef34815ced865ce46cd7d234fee5fabe081",
+      "body_sha256": "40c6430df78a1bbf31cfdd8998dc2057f1ad90642908f6fa0aa76bcf0552442a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk11",
+      "source_sha256": "be6a69d4094e7ce28dbca4c6c287e686f1b2076fcd48cde1f418cf267ea5bc1d",
+      "body_sha256": "6db267ca297e8cabf8cead7e89856096f37c74c244accc378dd28e2d7b01f056",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk12",
+      "source_sha256": "e03e3baf0a9c83921e3ca4ac70941d7e253b7b0d38feddfda660bb00c7e7a58e",
+      "body_sha256": "d436f4a5b032656e0f9e49159e90db2046d793b48872472c17731bc2f918c138",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk13",
+      "source_sha256": "dfcd32280303ef8e7cd106c9c3536d214d23fed4accca158d01c165efd8323f8",
+      "body_sha256": "48ca2bcfaf5acc9ec0f70b4e278bd61ebce264ec161096551aec00f2c6573dbf",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk14",
+      "source_sha256": "000bc61d296d38f659cd33f93d75287839425faa4b31ea6eba3e4d85e393bfe1",
+      "body_sha256": "47a2cff82f1f2db7bca7fa0d3700a67849d6d909006afd532ef05b2810b4a022",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk15",
+      "source_sha256": "879ce849b99288ec0b35a67943e23d21e82bbbc59d2bc5de5066cbdbd2c5e6af",
+      "body_sha256": "48e7b81232e6df4a332bb3be5376f6b58a1292af31b1b88f1ea62f1657aee78a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk16",
+      "source_sha256": "c0dcbb7cfb0856791aa006d00e9d21527e85bb948ee68191335076557be025d0",
+      "body_sha256": "4ac3891b3b85c35533a4abf64391698ee82dac313dc272d60884524dad3aaf0e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk17",
+      "source_sha256": "80fe0a70cf906864972db12e5f5a2e36b6cf922522fcdbc0fda3f37b4a9786a3",
+      "body_sha256": "29b42f860b96b7ff407ceb2f96be60420025469b1435de8219b97c0ecf41fe7d",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk18",
+      "source_sha256": "ac9bb4058250830ad68681e07b4dba4dca1f0aed4b0ddd6b472357f4c5445892",
+      "body_sha256": "67835f98d0156c8de4c3990af5d0c10bdcf1e6c782ddcecd1b14f8aae05060a3",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk19",
+      "source_sha256": "6ac1557f91c517597129f1b37c9766f54e2e0e1f09ba4508d64c87919434f863",
+      "body_sha256": "644c0ea34bb3526ea136f5f2caa6f00723dea58ec1612a067e6905fa1279c6c7",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk20",
+      "source_sha256": "363fec39ee8e077216ef6fae6036b691c0b8201216d2a3f796ce113e8600716d",
+      "body_sha256": "68f6c763937eb0dae7102cc7800898debb133627824f1befde11c15770efc960",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk21",
+      "source_sha256": "a7400d9e152848c67958ced0f166c0d40c30bf7f01cd331acd9d1a00f3745cf6",
+      "body_sha256": "bb1529f0ad29d1e81f3f095829096558f5b008fca8f9fadb17405a168f817af9",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk22",
+      "source_sha256": "7e46c844a2c97b90231a6c52ecdfd92ef7227a2b5f4d008534f82f4653755b91",
+      "body_sha256": "0e5222f493e0f67c1380be0daa40dbec0404c37baafc20371b0f96077add07cb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk23",
+      "source_sha256": "fd153a6c98c85ecd22d4eb1c70ab6c72f29e4a70ef51674db1047b8fa543f657",
+      "body_sha256": "f622cab951d16210cef01e56c22686fd4e27772005d5ad073a9078b08bddf14e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk24",
+      "source_sha256": "317ccb6b439b15bf1ad422a3e256f5427883a76597e60f0a4952eb77991a9baf",
+      "body_sha256": "5762e63fe1dcb0602338e30f8cfdedcc72f6e28f8867e9c17f42c05acaa6b595",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk25",
+      "source_sha256": "dc41b65218930be35a3ff1ab805c86fdbe4fb3b13791e71957d18ef990423909",
+      "body_sha256": "ef46e511f054c31fb849bc8f00c3648aa677a9a31e37dd5a1da6a37ce56136f4",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk26",
+      "source_sha256": "62e20cb979b763772a1436adfc4997441d2e5733d6ca9dd26ee9b90c3ac3edf8",
+      "body_sha256": "40ef5c324caadb2028a575110f968fc29eb623c3e2c4d15529be1c1aaddd3aae",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk27",
+      "source_sha256": "a1ad2655da5c9589cfd2ea872e0e5d965c9658d70290d3f5e995d6ed79dbf035",
+      "body_sha256": "333ef5ff2dc4628b8c3112d575415c2ee099f5eba9f6dcfd08ff10f1a1b4b417",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk28",
+      "source_sha256": "b2e9f078e20a5cc3128e10b450e627dce289c50172642a0859f0a6e820bd5ca6",
+      "body_sha256": "8e29a026095678e66eb5c305585df1e9cdf171d715011e4a1dcaf3664643f539",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk29",
+      "source_sha256": "92f70368cda6abe8a3f066ba0c353c842b07b85cc3e65de67ef27f915c40768a",
+      "body_sha256": "f20e2c0c25ef69bebcf9b30a90272cdd4de7b9d5b30a7f1ced76baa27efab2cb",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk30",
+      "source_sha256": "a894a9d801be27e1c821ff728cb7a509564c15e7df96cb5425b0d3b5bd8557d4",
+      "body_sha256": "ff26e6f23da347147a7d652c727d3ebcf65b04f3eaf223cbb97afebed09a60d5",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C7TypeMaskChunk31",
+      "source_sha256": "ba37f60fcc672091c3bea05ab111a69bfbce5ef53c1949a31ae4f0ed82edecd9",
+      "body_sha256": "f8da3e9eff8a88b26789d528e203b8ac8a997a9d1196d06a22895c5e66a7dfc7",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk0",
+      "source_sha256": "a666be40d035e4c563d2eb9025f141841214a79a5f2fc28670ea2b069affd891",
+      "body_sha256": "8ca6310d4a1b5e937f96a9f51083d76b0042980ad82a6fb85fe99112375fc8aa",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk1",
+      "source_sha256": "63312442596f51390f37cedb140034f6b685dd2a098a2d74b3ba678fe3d6a4d1",
+      "body_sha256": "d89ae15184dba89abc0d24537527f9973a5d72f3fb4b552d90bde050293bf20c",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk2",
+      "source_sha256": "bd7f79e188102c5ea6e095701d7cf602851f380315ebc4f0127569aa493e0ce3",
+      "body_sha256": "7db02c2a3cd4ed7d0f203b85adc900e13535beebd0efb4fe8f550ecacfae6307",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk3",
+      "source_sha256": "868736eafa69a39dd9fa959f149ea3f73b9f8808ee69fe8cd4df36f969a3067b",
+      "body_sha256": "b925ea788632814473cd93258c5be3e404ca6425d967c7d0a54ffe97a22e3e4b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk4",
+      "source_sha256": "647ec1c5524486355a7c0d8400f1625b9b0f85e771b06380aa9e9225a36327dc",
+      "body_sha256": "538bbc296a27718b8377f3d98647e07c3bc6e48319763d8d949c71387a2a555a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk5",
+      "source_sha256": "fc067eec6db7d29d23826399415258a72241c0d4c826a671badbf2f6d361bf24",
+      "body_sha256": "43867ec759399650a6d4ef1eb345499d5ac90f0a1cfc78bfa38bb34902b4448a",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk6",
+      "source_sha256": "4b17debf54c8aa6b3de014eb66551e970cce2213a1ee28e28b8bf080cdf7e0ba",
+      "body_sha256": "1b1d7180f6a286df3f920e15a8979d978bd25377293a170ea632a89682159d94",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk7",
+      "source_sha256": "11d709412ccb84b90caaa3b80c9c2a2015806358981adbbc00afde9c6655a1d5",
+      "body_sha256": "ffd69a757603d262b803622c2f88cbc7343b5b53e8ea137ec53d1053f21f890e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk8",
+      "source_sha256": "78092ab1fab6d9633478a03b0b3ad10571d5d4a551e3c308fa8aca9bf9ab4d5a",
+      "body_sha256": "0edeb448009317f8efa74ecc185313cfdcc88ea99a017ed31e15e2e8ddf230be",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk9",
+      "source_sha256": "26e11d9866236ae63896f433d5e61897edc8b63938a780691e8afd3cafccb029",
+      "body_sha256": "5030788b74696cc439b5b04384abb402c83a84227a2b17e00ad3a4baa0078784",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk10",
+      "source_sha256": "343f08926cd2bac2bad72a4fc1c5d0c476de98f4b790bcc0ceb32089aff221eb",
+      "body_sha256": "3cc04f8e8c5d98fc7906e3c50d63d60cf00a4fe8b04102ab08d2bb93940a56a5",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk11",
+      "source_sha256": "c3cff3d9c2f8db78b4ba0ae7db015aa995ae611769f08f80108f11fbcb7ab2a7",
+      "body_sha256": "46551cb318eee0f98e9ced71f543d5495abb4cf4e4d71629540cd5e27735346d",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk12",
+      "source_sha256": "c76931e6e3c4d0c18b122519e89d7bade33cd8b72a8fbbd11b9f40236d3486fe",
+      "body_sha256": "ab238cdc6c2d8874770226e4b96e4425d0d08b20048477cccd6e4d32ffae627f",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk13",
+      "source_sha256": "1f6ef34a9a33a8485edbe7f981fa59a7c880b36490b20bc33e1edabff04fbf59",
+      "body_sha256": "396c572630348a3e6f1bc40a9ec28a9ef079ac8b588cff172d5b49c78a36d753",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk14",
+      "source_sha256": "5b74ed7898d0527877e83e8c2a8a5013e57dfbf021d91612477d87bf4aa771ca",
+      "body_sha256": "281c5bcfa391fb6083cc7cc52dc968e7347c3b081febf5f625bfc89a7f05ab86",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk15",
+      "source_sha256": "56751d8537b81282269b02e00b91ba5c6ec0912808541c73c5e41396824f3e73",
+      "body_sha256": "99e13aa497a4c2af24c3a16381977da91923f0bbc38efbd68b41b2f6ca8896ea",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk16",
+      "source_sha256": "e0e36a36f461f67d918490b4a2f86987e3e0254ab09e02a5c66aff6b0cdba9a1",
+      "body_sha256": "3e98085054e35d7dc088dd319cb70ddc650554e7522c4b77da0aa5909241eaa7",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk17",
+      "source_sha256": "396b7fee2e80a6573fc9aece57d5ebfeaf4c6c1012d3d75a5b57187bed3054b1",
+      "body_sha256": "bff2ab74b342e815307f0dcd6a92b6b0bb09527a5d7cb081c3e174db13c85836",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk18",
+      "source_sha256": "e5ae6527880c90e652d534d0522805ce5c358405acbb4725761d480d363c5771",
+      "body_sha256": "67c58ff26935f44d4b24a52f5bd327f088b50cece491688db309c40f47cd2780",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk19",
+      "source_sha256": "ece5b43bb40b5f8dcda2ad7906e2a2ac76672cdc733131cbbb9f8c29e53c9006",
+      "body_sha256": "d70877aca2dd9ada030f78ea941a9f1b44799985d8391182048254359b3f451f",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk20",
+      "source_sha256": "5b821828097761d5c8121aecbae462e36768b680c1ee3bb0e169db9c98504f7b",
+      "body_sha256": "6e52e3e99aee999de51be20ae1be6861d670e2102a215b3b611a6df766799662",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk21",
+      "source_sha256": "dd3f076654091b80783bb406c64304af6b13e3f1d008df8f2b5583c72573eb77",
+      "body_sha256": "4aa06a9da562b35d02a3a3aceb18e642a184e71671fa2ff6bd4fb737bd0091cf",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk22",
+      "source_sha256": "00d30d7ee5d4ff997d7587a0e4ed90a8de8917fe6003afbc4d0a1e4851ae31ce",
+      "body_sha256": "7f6232ff3eae3e17fad664e9923d3bc0df020992a1dc31fb1a0b1d1ef6788824",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk23",
+      "source_sha256": "37b56554734d9ad0a94a71187675ab1178e1bcd94e8c95b7e452183ed3322083",
+      "body_sha256": "da579f9c310c5768adb2031e99229e111182ca8f57b6d4dada48b391f722f072",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk24",
+      "source_sha256": "7b4032e92b6cf3603ad7c36dfaa938c2232d4ec3687eb19450ce51c4f4d4db4d",
+      "body_sha256": "013bf1746379ddacdc2deb603a51465e365a7e308abfef31baf66d3cf32ee545",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk25",
+      "source_sha256": "8e0b22e5752f4cbc840cf97a0bbce0fdccd5af49294343cdc99c5ee98e0b3354",
+      "body_sha256": "efb56ec06d14e2d5870b19f5cec3fda3c1a48ec5d1f33c4d22fdbdf91556109b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk26",
+      "source_sha256": "39c9cd054e01018155df3eba4c65ff59e2445443cc89f5ae9e1ca25347ac912e",
+      "body_sha256": "2382c9e22a48d93ca82cfa931de7b1fcc33b2d52f9758bbd889aa42e8b1b31a1",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk27",
+      "source_sha256": "384be6146980e74dfe0a72214ea6192eff949538791c1025af9d943ad61f8d78",
+      "body_sha256": "9a0644daff40542bbffc69d51fc37449549ef4d09cc667b44bc2f892e6deea19",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk28",
+      "source_sha256": "b533853371403942d245cf755b619b0e8cd6336450899cf746176e40a73c2ebf",
+      "body_sha256": "5ebc2a0acad903d0032f3abeae380a3461e20814ae524a85f77afe6cb314dabe",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk29",
+      "source_sha256": "2b61f36e5c7856fa707c03723927d8a5f69a7d6d1c7267bae39bb36480e8929b",
+      "body_sha256": "507e17b58c2da94bae4ff7582fde1f4bc1d02a27984253da1729fc8c12572a1e",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk30",
+      "source_sha256": "6d79df86f900a130876765fedfaa3208c854d621982acfebaaef766d7f6170cc",
+      "body_sha256": "b2791cb4cfcf23268f676e62be87996750c22aea10df6eda93b3698de2f1fc2b",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9C9TypeMaskChunk31",
+      "source_sha256": "885b5291773bbc2e9614b796e75f8f574e951ad65a5268578b0d92c4fbc7a390",
+      "body_sha256": "9044adbad3b53e698314df2b984cd98ac9163f1cbee8b0456fb21462753f2ad5",
+      "imports": [
+        "R5Kernel.R5TypeChunks"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9PartialCertificates",
+      "source_sha256": "10fc0ca015009d06f458cc1f27f53a30db052e84b3dc669a3d6f240e297aa7e1",
+      "body_sha256": "7382fb04ac9e0a535baa688bab33805d2b83527a5a0fdece9dbcc9a7becea7d4",
+      "imports": [
+        "R5Kernel.R5TypeChunks",
+        "R5Kernel.SmallUniform",
+        "R5Kernel.Probes.CycleSurplusBridge",
+        "R5Kernel.S9C5TypeMaskChunk0",
+        "R5Kernel.S9C5TypeMaskChunk1",
+        "R5Kernel.S9C5TypeMaskChunk2",
+        "R5Kernel.S9C5TypeMaskChunk3",
+        "R5Kernel.S9C5TypeMaskChunk4",
+        "R5Kernel.S9C5TypeMaskChunk5",
+        "R5Kernel.S9C5TypeMaskChunk6",
+        "R5Kernel.S9C5TypeMaskChunk7",
+        "R5Kernel.S9C5TypeMaskChunk8",
+        "R5Kernel.S9C5TypeMaskChunk9",
+        "R5Kernel.S9C5TypeMaskChunk10",
+        "R5Kernel.S9C5TypeMaskChunk11",
+        "R5Kernel.S9C5TypeMaskChunk12",
+        "R5Kernel.S9C5TypeMaskChunk13",
+        "R5Kernel.S9C5TypeMaskChunk14",
+        "R5Kernel.S9C5TypeMaskChunk15",
+        "R5Kernel.S9C5TypeMaskChunk16",
+        "R5Kernel.S9C5TypeMaskChunk17",
+        "R5Kernel.S9C5TypeMaskChunk18",
+        "R5Kernel.S9C5TypeMaskChunk19",
+        "R5Kernel.S9C5TypeMaskChunk20",
+        "R5Kernel.S9C5TypeMaskChunk21",
+        "R5Kernel.S9C5TypeMaskChunk22",
+        "R5Kernel.S9C5TypeMaskChunk23",
+        "R5Kernel.S9C5TypeMaskChunk24",
+        "R5Kernel.S9C5TypeMaskChunk25",
+        "R5Kernel.S9C5TypeMaskChunk26",
+        "R5Kernel.S9C5TypeMaskChunk27",
+        "R5Kernel.S9C5TypeMaskChunk28",
+        "R5Kernel.S9C5TypeMaskChunk29",
+        "R5Kernel.S9C5TypeMaskChunk30",
+        "R5Kernel.S9C5TypeMaskChunk31",
+        "R5Kernel.S9C7TypeMaskChunk0",
+        "R5Kernel.S9C7TypeMaskChunk1",
+        "R5Kernel.S9C7TypeMaskChunk2",
+        "R5Kernel.S9C7TypeMaskChunk3",
+        "R5Kernel.S9C7TypeMaskChunk4",
+        "R5Kernel.S9C7TypeMaskChunk5",
+        "R5Kernel.S9C7TypeMaskChunk6",
+        "R5Kernel.S9C7TypeMaskChunk7",
+        "R5Kernel.S9C7TypeMaskChunk8",
+        "R5Kernel.S9C7TypeMaskChunk9",
+        "R5Kernel.S9C7TypeMaskChunk10",
+        "R5Kernel.S9C7TypeMaskChunk11",
+        "R5Kernel.S9C7TypeMaskChunk12",
+        "R5Kernel.S9C7TypeMaskChunk13",
+        "R5Kernel.S9C7TypeMaskChunk14",
+        "R5Kernel.S9C7TypeMaskChunk15",
+        "R5Kernel.S9C7TypeMaskChunk16",
+        "R5Kernel.S9C7TypeMaskChunk17",
+        "R5Kernel.S9C7TypeMaskChunk18",
+        "R5Kernel.S9C7TypeMaskChunk19",
+        "R5Kernel.S9C7TypeMaskChunk20",
+        "R5Kernel.S9C7TypeMaskChunk21",
+        "R5Kernel.S9C7TypeMaskChunk22",
+        "R5Kernel.S9C7TypeMaskChunk23",
+        "R5Kernel.S9C7TypeMaskChunk24",
+        "R5Kernel.S9C7TypeMaskChunk25",
+        "R5Kernel.S9C7TypeMaskChunk26",
+        "R5Kernel.S9C7TypeMaskChunk27",
+        "R5Kernel.S9C7TypeMaskChunk28",
+        "R5Kernel.S9C7TypeMaskChunk29",
+        "R5Kernel.S9C7TypeMaskChunk30",
+        "R5Kernel.S9C7TypeMaskChunk31",
+        "R5Kernel.S9C9TypeMaskChunk0",
+        "R5Kernel.S9C9TypeMaskChunk1",
+        "R5Kernel.S9C9TypeMaskChunk2",
+        "R5Kernel.S9C9TypeMaskChunk3",
+        "R5Kernel.S9C9TypeMaskChunk4",
+        "R5Kernel.S9C9TypeMaskChunk5",
+        "R5Kernel.S9C9TypeMaskChunk6",
+        "R5Kernel.S9C9TypeMaskChunk7",
+        "R5Kernel.S9C9TypeMaskChunk8",
+        "R5Kernel.S9C9TypeMaskChunk9",
+        "R5Kernel.S9C9TypeMaskChunk10",
+        "R5Kernel.S9C9TypeMaskChunk11",
+        "R5Kernel.S9C9TypeMaskChunk12",
+        "R5Kernel.S9C9TypeMaskChunk13",
+        "R5Kernel.S9C9TypeMaskChunk14",
+        "R5Kernel.S9C9TypeMaskChunk15",
+        "R5Kernel.S9C9TypeMaskChunk16",
+        "R5Kernel.S9C9TypeMaskChunk17",
+        "R5Kernel.S9C9TypeMaskChunk18",
+        "R5Kernel.S9C9TypeMaskChunk19",
+        "R5Kernel.S9C9TypeMaskChunk20",
+        "R5Kernel.S9C9TypeMaskChunk21",
+        "R5Kernel.S9C9TypeMaskChunk22",
+        "R5Kernel.S9C9TypeMaskChunk23",
+        "R5Kernel.S9C9TypeMaskChunk24",
+        "R5Kernel.S9C9TypeMaskChunk25",
+        "R5Kernel.S9C9TypeMaskChunk26",
+        "R5Kernel.S9C9TypeMaskChunk27",
+        "R5Kernel.S9C9TypeMaskChunk28",
+        "R5Kernel.S9C9TypeMaskChunk29",
+        "R5Kernel.S9C9TypeMaskChunk30",
+        "R5Kernel.S9C9TypeMaskChunk31"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9Dispatcher",
+      "source_sha256": "56c8491e0d7f19e312266015a1654712ef858e9328162b84533f1527acc35f60",
+      "body_sha256": "01fb0a735ba13791d52d179b0d49f2335c5cc05e8692d35bd304bdbbd5159b67",
+      "imports": [
+        "R5Kernel.S9PartialCertificates",
+        "R5Kernel.SmallCycleEndpoint"
+      ]
+    },
+    {
+      "module": "R5Kernel.S9DirectAdapter",
+      "source_sha256": "d4908e97362a3f4839e09aee99aff3411b878854f9aad39e706381e91c2f37be",
+      "body_sha256": "c57b1f7321f25ceaf1fced934a4e4dac880db02d702723aed07730a2a560a2ea",
+      "imports": [
+        "R5Kernel.S9Dispatcher"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M079",
+      "source_sha256": "622cf231e88827528e54142ad3f7e21c87fe02c445b1f4913c3a3dc11667c8c9",
+      "body_sha256": "718a8a97766c7b127c3c1becde25aa2622b7ed86b5cdf695c00952ae53f16aa0",
+      "imports": [
+        "R5Kernel.Parts.M078",
+        "R5Kernel.Parts.M033",
+        "R5Kernel.S7LegacyAPI",
+        "R5Kernel.S8LegacyAPI",
+        "R5Kernel.S9DirectAdapter"
+      ]
+    },
+    {
+      "module": "R5Kernel.Parts.M080",
+      "source_sha256": "4b80a50236c2359e540a34573d1c27c21d57a6139086c8962622222f75572191",
+      "body_sha256": "5b8a86a7e2dd1693234c6cf4cab5b331485e6bbc981e562d8c8da4f4fb33e4ce",
+      "imports": [
+        "R5Kernel.Parts.M079"
+      ]
+    },
+    {
+      "module": "R5Kernel.Final",
+      "source_sha256": "6ae56eea30fb22fae3634addbc8a22b489f8f91c8930a04b8971ceb39a5618c8",
+      "body_sha256": "f4109655b7341fe3d8e505a05c6e622922e3e6a7e0d8db6b5e79331d8c0141e1",
+      "imports": [
+        "R5Kernel.Parts.M080",
+        "R5Kernel.Audit"
+      ]
+    }
+  ],
+  "external_imports": [
+    "Lean.Elab.Command",
+    "Lean.Elab.Frontend",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Order.Chebyshev",
+    "Mathlib.Combinatorics.SimpleGraph.Coloring.Constructions",
+    "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+    "Mathlib.Combinatorics.SimpleGraph.DeleteEdges",
+    "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan",
+    "Mathlib.Combinatorics.SimpleGraph.FiveWheelLike",
+    "Mathlib.Combinatorics.SimpleGraph.Operations",
+    "Mathlib.Data.Finset.Powerset",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Set.Finite.Lemmas",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.IntervalCases",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Ring"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.0",
+  "lake_manifest_sha256": "b331bbb1091b40a257f5c7b8054949bb78c8cc3f84c2e98778fdf6310fd0084d",
+  "transformations": [
+    "remove import lines",
+    "wrap whole module bodies in sequential Lean.Elab.process calls",
+    "append original target alias and strict axiom audit"
+  ]
+}
